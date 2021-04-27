@@ -10,4 +10,4 @@ Repository root for C# projects.
 | `README.md` |  Read me file. |
 
 ### Authors
-*Jhoan Rodriguez* - [LinkedIn](https://www.linkedin.com/in/jhserohe/) || [Twitter](https://twitter.com/JhoanRodriguez_)
+*Esteban De La Hoz* - [LinkedIn](https://www.linkedin.com/in/estebandelahoz/) || [Twitter](https://twitter.com/Esteban18911)
