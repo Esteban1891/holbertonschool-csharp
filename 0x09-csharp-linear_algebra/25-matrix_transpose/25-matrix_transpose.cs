@@ -1,22 +1,23 @@
-///<summary>Initialize class.</summary>
+﻿using System;
+
+/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-	/// <summary>Transposes a matrix.</summary>
-	/// <param name="matirx">The matrix.</param>
-	/// <returns>The transposed matrix.</returns>
-	public static double[,] Transpose(double[,] matrix)
-	{
-		if (matrix.Length == 0)
-			return new double[,] {};
+    /// <summary>This is the class object.</summary>
+    public static double[,] Transpose(double[,] matrix)
+    {
+        if (matrix.Length == 0)
+            return new double[,] {};
 
-		double[,] trans = new double[matrix.GetLength(1), matrix.GetLength(0)];
+        double[,] transposeMatrix = new double[matrix.GetLength(1), matrix.GetLength(0)];
 
-		for (int i = 0; i < matrix.GetLength(0); i++)
-		{
-			for (int j = 0; j < matrix.GetLength(1); j++)
-				trans[j, i] = matrix[i, j];
-		}
-
-		return trans;
-	}
+        for (int row = 0; row < matrix.GetLength(0); row++)
+        {
+            for (int col = 0; col < matrix.GetLength(1); col++)
+            {
+                transposeMatrix[col, row] = Math.Round(matrix[row, col], 2);
+            }
+        }
+        return transposeMatrix;
+    }
 }

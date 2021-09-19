@@ -6,11 +6,13 @@ namespace _3_print_alphabt
     {
         static void Main(string[] args)
         {
-            for (char letter = 'a'; letter <= 'z'; letter++)
+            char alphabet = 'a';
+            for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
             {
-                if (letter == 'e' || letter == 'q')
+                if (alphabet == 'q' || alphabet == 'e')
                     continue;
-                Console.Write(letter);
+                else
+                    Console.Write(alphabet);
             }
         }
     }

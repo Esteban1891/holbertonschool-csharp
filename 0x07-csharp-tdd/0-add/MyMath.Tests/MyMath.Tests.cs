@@ -1,22 +1,24 @@
 using NUnit.Framework;
+using MyMath;
 
-namespace MyMath.Tests
+namespace MyMath.Test
 {
     [TestFixture]
     public class Tests
     {
         [Test]
-        public void twoInteger([Values(1, 2, 3)] int a, [Values(1, 2, 3)] int b)
+        public void Test_Add_20_from_12_8()
         {
-            int result = Operations.Add(a, b);
-            Assert.AreEqual(result, a + b);
+            Assert.AreEqual(22, Operations.Add(12, 10));
         }
 
-        [Test]
-        public void negativeIntegers([Values(-1, -2, -3)] int a, [Values(-1, -2, -3)] int b)
+        [TestCase(15, 10, 25)]
+        [TestCase(-15, 10, -5)]
+        [TestCase(15000, 10, 15010)]
+        [TestCase(0, 0, 0)]
+        public void Test_Operatins_Add(int a, int b, int res)
         {
-            int result = Operations.Add(a, b);
-            Assert.AreEqual(result, a + b);
+            Assert.AreEqual(res, Operations.Add(a, b));
         }
     }
 }

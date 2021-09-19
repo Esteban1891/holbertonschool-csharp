@@ -1,51 +1,40 @@
-using System;
+﻿using System;
 
-
-///<summary>Initialize class.</summary>
+/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-	///<summary>Rotates a 2D matrix.</summary>
-	///<param name="matrix">The matrix to rotate.</param>
-	///<param name="angle">Angle to rotate.</param>
-	///<returns>New rotated matrix.</returns>
-	public static double[,] Rotate2D(double[,] matrix, double angle)
-	{
-		if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
-			return new double[,] {{ -1 }};
+    /// <summary>This is the class object.</summary>
+    public static double[,] Rotate2D(double[,] matrix, double angle)
+    {
+        double cosinangle = Math.Cos(angle);
+        double sinangle = Math.Sin(angle);
 
-		double[,] mRotation = new double[,] {
-			{ Math.Cos(angle), Math.Sin(angle) },
-			{ Math.Sin(angle * -1), Math.Cos(angle) },
-		};
+        double[,] rotateMatrix = new double[,] {
+            {cosinangle, sinangle},
+            {-sinangle, cosinangle}
+        };
 
-		return Multiply(matrix, mRotation);
-	}
+        if (matrix is double[,] && matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
+        {
+            int rowMat1 = matrix.GetLength(0); // Elements of vector == Rows
+            int colMat1 = matrix.GetLength(1); // Vectors / Columns
+            int colMat2 = rotateMatrix.GetLength(1); // Vectors / Columns
+            int rowMat2 = rotateMatrix.GetLength(0); // Elements of vector == Rows
 
-	///<summary>Multiplies two matrices.</summary>
-	///<param name="matrix1">First matrix.</param>
-	///<param name="matrix2">Second matrix.</param>
-	///<returns>The new multiplied matrix.</returns>
-	public static double[,] Multiply(double[,] matrix1, double[,] matrix2)
-	{
-		double rowsA = matrix1.GetLength(0), colsA = matrix1.GetLength(1);
-		double rowsB = matrix2.GetLength(0), colsB = matrix2.GetLength(1);
-		double[,] res = new double[(int)rowsA, (int)colsB];
-		double aux = 0;
+            double[,] mulMatrix = new double[rowMat1, colMat2];
 
-		if (colsA != rowsB) // checks if the matrices can be multiplied
-			return new double[,] {{ -1 }};
-
-		for (int row = 0; row < rowsA; row++)
-		{
-			for (int col= 0; col < colsB; col++)
-			{
-				aux = 0;
-				for (int idx = 0; idx < rowsB; idx++)
-					aux += Math.Round(matrix1[row, idx] * matrix2[idx, col], 2);
-				res[row, col] = Math.Round(aux, 2);
-			}
-		}
-
-		return res;
-	}
+            for (int col = 0; col < colMat1; col++)
+            {
+                for (int row = 0; row < rowMat1; row++)
+                {
+                    for (int rxc = 0; rxc < colMat2; rxc++)
+                    {
+                        mulMatrix[row, rxc] = Math.Round(mulMatrix[row, rxc] + matrix[row, col] * rotateMatrix[col, rxc], 2);
+                    }
+                }
+            }
+            return mulMatrix;
+        }
+        else  { return new double[,]{{-1}}; }
+    }
 }

@@ -1,14 +1,16 @@
 ﻿using System;
 
-///<summary>Base class.</summary>
+/// <summary>
+/// This is Queue.
+/// </summary>
 public abstract class Base
 {
-    ///<summary>Name of instance.</summary>
+    /// <summary>This is Queue empty class.</summary>
     public string name;
 
-    ///<summary>String override.</summary>
+    /// <summary>This is Queue empty class.</summary>
     public override string ToString()
     {
-        return (name + " is a " + this.GetType().ToString());
+        return($"{name} is a {this.GetType()}");
     }
 }

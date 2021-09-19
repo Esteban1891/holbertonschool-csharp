@@ -1,66 +1,76 @@
 ﻿using System;
 
-///<summary>Generic queue class implementation.</summary>
+/// <summary>
+/// This is Queue.
+/// </summary>
 public class Queue<T>
 {
-    ///<summary>Head of a queue.</summary>
-    public Node head = null;
-    ///<summary>Tail of a queue.</summary>
-    public Node tail = null;
-    int count = 0;
-
-    ///<summary>Checks type of parameter.</summary>
-    public string CheckType()
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
+    public Type CheckType()
     {
-        return (typeof(T).ToString());
+        return(typeof(T));
     }
-    ///<summary>Adds to a queue.</summary>
-    public void Enqueue(T val)
+
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
+    public class Node
     {
-        Node neu = new Node(val);
-        if (head == null && tail == null)
+        /// <summary>This is Queue empty class.</summary>
+        public T value = default(T);
+        /// <summary>This is Queue empty class.</summary>
+        public Node next = null;
+
+        /// <summary>This is Queue empty class.</summary>
+        public Node(T var)
         {
-            head = neu;
-            tail = neu;
+            value = var;
+        }
+    }
+
+    /// <summary>This is Queue empty class.</summary>
+    public Node head = null;
+    /// <summary>This is Queue empty class.</summary>
+    public Node tail = null;
+    /// <summary>This is Queue empty class.</summary>
+    public int count;
+
+    /// <summary>This is Queue empty class.</summary>
+    public void Enqueue(T value)
+    {
+        Node newNode = new Node(value);
+        if (head == null)
+        {
+            head = newNode;
+            tail = newNode;
         }
         else
         {
-            tail.next = neu;
-            tail = neu;
+            tail.next = newNode;
+            tail = newNode;
         }
-        count += 1;
+        count++;
     }
-    ///<summary>Removes from a queue.</summary>
+    /// <summary>This is Queue empty class.</summary>
     public T Dequeue()
     {
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return (default(T));
+            return(default(T));
         }
-        Node old = head;
-        head = old.next;
-        count -= 1;
-        return (old.value);
+
+        Node tmp = head;
+        head = head.next;
+        count--;
+        return(tmp.value);
     }
-    ///<summary>Counts a queue.</summary>
+
+    /// <summary>This is Queue empty class.</summary>
     public int Count()
     {
-        return (count);
-    }
-
-    ///<summary>Queue nodes.</summary>
-    public class Node
-    {
-        ///<summary>Value of a node.</summary>
-        public T value = default(T);
-        ///<summary>Next node.</summary>
-        public Node next = null;
-
-        ///<summary>Constructor for Node.</summary>
-        public Node (T t)
-        {
-            value = t;
-        }
+        return(count);
     }
 }

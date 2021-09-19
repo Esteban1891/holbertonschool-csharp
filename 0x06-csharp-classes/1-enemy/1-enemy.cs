@@ -1,12 +1,16 @@
+﻿using System;
+
 namespace Enemies
 {
-	///<summary>Defines a Zombie.</summary>
-	public class Zombie
-	{
-		///<summary>Zombie health.</summary>
-		public int health;
-
-		///<summary>Initialize a new instance of <see cref="Zombie"/>.</summary>
-		public Zombie() => health = 0;
-	}
+    /// <summary>
+    /// This is our class Zombie.
+    /// </summary>
+    class Zombie
+    {
+        public int health;
+        public Zombie()
+        {
+            health = 0;
+        }
+    }
 }

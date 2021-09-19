@@ -1,10 +1,9 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 class Except
 {
-	public static void Throw()
-	{
-		throw new Exception();
-	}
+    public static void Throw()
+    {
+        throw new ArgumentException();
+    }
 }

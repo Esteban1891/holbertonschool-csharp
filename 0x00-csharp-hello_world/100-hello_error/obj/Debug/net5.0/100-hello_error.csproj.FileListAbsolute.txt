@@ -1,0 +1,16 @@
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/100-hello_error
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/100-hello_error.deps.json
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/100-hello_error.runtimeconfig.json
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/100-hello_error.runtimeconfig.dev.json
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/100-hello_error.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/ref/100-hello_error.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/bin/Debug/net5.0/100-hello_error.pdb
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.csprojAssemblyReference.cache
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.GeneratedMSBuildEditorConfig.editorconfig
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.AssemblyInfoInputs.cache
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.AssemblyInfo.cs
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.csproj.CoreCompileInputs.cache
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/ref/100-hello_error.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.pdb
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/100-hello_error/obj/Debug/net5.0/100-hello_error.genruntimeconfig.cache

@@ -6,8 +6,12 @@ namespace _4_print_hexa
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 99; i++)
-                Console.WriteLine($"{i:d} = 0x{i:x}");
+            int num = 0;
+            while (num <= 98)
+            {
+                Console.WriteLine($"{num} = 0x{num:x}");
+                num++;
+            }
         }
     }
 }

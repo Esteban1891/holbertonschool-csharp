@@ -1,15 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 class LList
 {
-	public static int Length(LinkedList<int> myLList)
-	{
-		int count = 0;
+    public static int Length(LinkedList<int> myLList)
+    {
+        int counter = 0;
 
-		foreach (var item in myLList)
-			count++;
-
-		return count;
-	}
+        foreach (int i in myLList)
+        {
+            counter++;
+        }
+        return(counter);
+    }
 }

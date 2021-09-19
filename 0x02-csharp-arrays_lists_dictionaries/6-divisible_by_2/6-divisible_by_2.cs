@@ -1,18 +1,22 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 class List
 {
     public static List<bool> DivisibleBy2(List<int> myList)
     {
-        List<bool> result = new List<bool>(myList.Count);
-        for (int i = 0; i < myList.Count; i++)
+        List<bool> resultList = new List<bool>();
+        for (int pos = 0; pos < myList.Count; pos++)
         {
-            if (myList[i] % 2 == 0)
-                result.Add(true);
+            if (myList[pos] % 2 == 0)
+            {
+                resultList.Add(true);
+            }
             else
-                result.Add(false);
+            {
+                resultList.Add(false);
+            }
         }
-        return result;
+        return resultList;
     }
 }

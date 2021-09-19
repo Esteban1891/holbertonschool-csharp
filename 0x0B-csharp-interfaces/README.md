@@ -1,12 +1,9 @@
-# 0x0B. C# - Interfaces
-### Description
-Intro to interfaces in C#.
-
-## Directory Contents
-
-|   ***File/Folder***    |  **Description**                       |
-|---------------|---------------------------------------|
-| `README.md` |  Read me file. |
-
-### Authors
-*Cameron Eng* - [Github](https://github.com/c_eng/) || [Twitter](https://twitter.com/c33Eng)
+# 0x0B-csharp-interfaces
+## General
+- What is an interface
+- What are interfaces used for
+- How do interfaces, classes, and structs differ
+- What is an abstract class
+- How are interfaces different from abstract classes
+- How is an interface implemented explicitly
+- What is the as keyword and how to use it

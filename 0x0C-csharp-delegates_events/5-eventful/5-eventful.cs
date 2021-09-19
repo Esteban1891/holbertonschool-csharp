@@ -1,126 +1,152 @@
 ﻿using System;
 
-///<summary>Calculation modifiers.</summary>
-public enum Modifier
-{
-    ///<summary>Weak modifier</summary>
-    Weak = 1,
-    ///<summary>Base modifier</summary>
-    Base = 2,
-    ///<summary>Strong modifier</summary>
-    Strong = 3
-}
-
-delegate void CalculateHealth(float health);
-///<summary>Calculates modifiers.</summary>
+/// <summary>This is a CalculateModifier(float baseValue, Modifier modifier) delegate.</summary>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
-class CurrentHPArgs : EventArgs
-{
-    public readonly float currentHp;
+/// <summary>This is a CalculateHealth() delegate.</summary>
+public delegate float CalculateHealth();
 
-    public CurrentHPArgs(float newHp)
-    {
-        this.currentHp = newHp;
-    }
+/// <summary>This is a delegate.</summary>
+public enum Modifier{
+    /// <summary>This is a delegate.</summary>
+    Weak,
+    /// <summary>This is a delegate.</summary>
+    Base,
+    /// <summary>This is a delegate.</summary>
+    Strong
 }
 
-///<summary>Player class</summary>
+/// <summary>This is Interact.</summary>
 public class Player
 {
-    private string name;
-    private float maxHp;
-    private float hp;
+    /// <summary>This is name string variable.</summary>
+    public string name;
+
+    /// <summary>This is maxHP float variable.</summary>
+    public float maxHp;
+
+    /// <summary>This is hp float variable.</summary>
+    public float hp;
+
+    /// <summary>This is Player constructor.</summary>
     private string status;
     EventHandler<CurrentHPArgs> HPCheck;
-
-    ///<summary>Constructor for Player class.</summary>
+    /// <summary>This is Player constructor.</summary>
     public Player(string name = "Player", float maxHp = 100f)
     {
-        if (maxHp <= 0f)
+        this.name = name;
+        this.maxHp = maxHp;
+
+        if (maxHp > 0)
         {
-            Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
-            this.maxHp = 100f;
+            this.hp = maxHp;
         }
         else
-            this.maxHp = maxHp;
-        this.name = name;
-        this.hp = this.maxHp;
-        this.status = $"{this.name} is ready to go!";
+        {
+            this.maxHp = 100f;
+            this.hp = 100f;
+            Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
+        }
+		this.status = $"{name} is ready to go!";
         HPCheck += CheckStatus;
     }
 
-    ///<summary>Prints Player health.</summary>
+    /// <summary>This is PrintHealth Method.</summary>
     public void PrintHealth()
     {
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
-    ///<summary>Calculates Player damage.</summary>
+    /// <summary>This is TakeDamege(float damage) Method.</summary>
     public void TakeDamage(float damage)
     {
-        if (damage < 0f)
-            damage = 0f;
-        Console.WriteLine($"{this.name} takes {damage} damage!");
-        float newHp = this.hp - damage;
-        this.ValidateHP(newHp);
+        if (damage < 0)
+            Console.WriteLine($"{name} takes 0 damage!");
+        else
+        {
+            Console.WriteLine($"{name} takes {damage} damage!");
+            ValidateHP(hp -= damage);
+        }
     }
 
-    ///<summary>Calculates Player healing.</summary>
+    /// <summary>This is HealDamage(float heal) Method.</summary>
     public void HealDamage(float heal)
     {
-        if (heal < 0f)
-            heal = 0f;
-        Console.WriteLine($"{this.name} heals {heal} HP!");
-        float newHp = this.hp + heal;
-        this.ValidateHP(newHp);
+        if (heal < 0)
+            Console.WriteLine($"{name} heals 0 HP!");
+        else
+        {
+            Console.WriteLine($"{name} heals {heal} HP!");
+            ValidateHP(hp += heal);
+        }
     }
 
-    ///<summary>Validates Player health modification.</summary>
+    /// <summary>This is ValidateHP(float newHp) Method.</summary>
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
-            this.hp = 0;
-        else if (newHp > this.maxHp)
-            this.hp = this.maxHp;
+            hp = 0;
+        else if (newHp > maxHp)
+            hp = maxHp;
         else
-            this.hp = newHp;
+            hp = newHp;
+
         OnCheckStatus(new CurrentHPArgs(this.hp));
     }
 
-    ///<summary>Validates Player health modification.</summary>
+    /// <summary>This is ApplyModifier(float baseValue, Modifier modifier) Method.</summary>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
-        return (baseValue * ((float)modifier / 2f));
+        float returnValue = baseValue;
+        if (modifier == Modifier.Weak)
+            returnValue *= 0.5f;
+        else if (modifier == Modifier.Strong)
+            returnValue *= 1.5f;
+        return(returnValue);
     }
 
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == this.maxHp)
-            this.status = $"{this.name} is in perfect health!";
-        else if (e.currentHp >= (this.maxHp / 2))
-            this.status = $"{this.name} is doing well!";
-        else if (e.currentHp >= (this.maxHp / 4))
-            this.status = $"{this.name} isn't doing too great...";
-        else if (e.currentHp > 0)
-            this.status = $"{this.name} needs help!";
-        else
-            this.status = $"{this.name} is knocked out!";
+            this.status = $"{name} is in perfect health!";
+        else if (e.currentHp >= (this.maxHp * 0.5f) && e.currentHp < this.maxHp)
+            this.status = $"{name} is doing well!";
+        else if (e.currentHp >= (this.maxHp * 0.25f) && e.currentHp < (this.maxHp * 0.5f))
+            this.status = $"{name} isn't doing too great...";
+        else if (e.currentHp > 0f && e.currentHp < (this.maxHp * 0.25f))
+            this.status = $"{name} needs help!";
+        else if (e.currentHp == 0)
+            this.status = $"{name} is knocked out!";
+
         Console.WriteLine(this.status);
     }
 
     private void HPValueWarning(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == 0)
-            Console.WriteLine("Health has reached zero!");
+            Console.WriteLine($"Health has reached zero!");
         else
-            Console.WriteLine("Health is low!");
+            Console.WriteLine($"Health is low!");
     }
 
-    void OnCheckStatus(CurrentHPArgs e)
+    private void OnCheckStatus(CurrentHPArgs e)
     {
-        if (e.currentHp < (this.maxHp / 4))
+        if (e.currentHp < (this.maxHp * 0.25f))
             HPCheck += HPValueWarning;
+
         HPCheck(this, e);
+    }
+}
+
+/// <summary>This is ValidateHP(float newHp) Method.</summary>
+public class CurrentHPArgs : EventArgs
+{
+    /// <summary>This is currentHp.</summary>
+    public readonly float currentHp;
+
+    /// <summary>This is CurrentHPArgs constructor.</summary>
+    public CurrentHPArgs(float newHp)
+    {
+        this.currentHp = newHp;
     }
 }

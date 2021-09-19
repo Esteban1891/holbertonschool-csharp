@@ -6,22 +6,23 @@ namespace _100_jagged_array
     {
         static void Main(string[] args)
         {
-            int[][] jaggedArray = new int[3][];
-
-            jaggedArray[0] = new int[] { 0, 1, 2, 3 };
-            jaggedArray[1] = new int[] { 0, 1, 2, 3, 4, 5, 6 };
-            jaggedArray[2] = new int[] { 0, 1 };
-
-            for (int i = 0; i < 3; i++)
+            int i, j;
+            int[][] jagged = new int[3][]
             {
-                for (int j = 0; j < jaggedArray[i].Length; j++)
-                {
-                    if (j != jaggedArray[i].Length - 1)
-                        Console.Write($"{jaggedArray[i][j]} ");
-                    else
-                        Console.WriteLine($"{jaggedArray[i][j]}");
+                new int[] {0, 1, 2, 3},
+                new int[] {0, 1, 2, 3, 4, 5, 6},
+                new int[] {0, 1}
+            };
 
+            for (i = 0 ; i < 3 ; i++)
+            {
+                for (j = 0 ; j < jagged[i].Length ; j++)
+                {
+                    Console.Write(jagged[i][j]);
+                    if (j < jagged[i].Length - 1)
+                        Console.Write(" ");
                 }
+                Console.Write('\n');
             }
         }
     }

@@ -1,15 +1,21 @@
-using System;
+﻿using System;
 
 class Line
 {
     public static void PrintLine(int length)
     {
-        if (length < 1)
-            Console.WriteLine();
+        int i;
+        if (length <= 0)
+        {
+            Console.Write("\n");
+        }
         else
         {
-            string myLine = new String('_', length);
-            Console.WriteLine(myLine);
+            for (i = 0 ; i < length ; i++)
+            {
+                Console.Write("_");
+            }
+            Console.Write("\n");
         }
     }
 }

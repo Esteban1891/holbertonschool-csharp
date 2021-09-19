@@ -1,10 +1,12 @@
-using System;
+﻿using System;
 
-///<summary>Defines a Shape.</summary>
+/// <summary>
+/// This is our class Zombie.
+/// </summary>
 class Shape
 {
-	public virtual int Area()
-	{
-		throw new NotImplementedException("Area() is not implemented");
-	}
+    public virtual int Area()
+    {
+        throw new NotImplementedException("Area() is not implemented");
+    }
 }

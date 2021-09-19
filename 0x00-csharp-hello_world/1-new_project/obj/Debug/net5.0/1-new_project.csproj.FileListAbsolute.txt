@@ -1,0 +1,16 @@
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/1-new_project
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/1-new_project.deps.json
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/1-new_project.runtimeconfig.json
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/1-new_project.runtimeconfig.dev.json
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/1-new_project.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/ref/1-new_project.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/bin/Debug/net5.0/1-new_project.pdb
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.csprojAssemblyReference.cache
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.GeneratedMSBuildEditorConfig.editorconfig
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.AssemblyInfoInputs.cache
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.AssemblyInfo.cs
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.csproj.CoreCompileInputs.cache
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/ref/1-new_project.dll
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.pdb
+/home/julian/holberton_school/1_spetialization/holbertonschool-csharp/0x00-csharp-hello_world/1-new_project/obj/Debug/net5.0/1-new_project.genruntimeconfig.cache

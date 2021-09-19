@@ -1,14 +1,18 @@
-using System;
+﻿using System;
 
-/// <summary>Represents an object.</summary>
+/// <summary>
+/// This is our class Zombie.
+/// </summary>
 class Obj
 {
-	/// <summary>Checks if the specified object is an instance of class that inherited from Array.</summary>
-	public static bool IsInstanceOfArray(object obj)
-	{
-		/* if (obj is Array)
-			return true;
-		return false */
-		return obj is Array;
-	}
+    /// <summary>
+    /// This is our class Zombie.
+    /// </summary>
+    public static bool IsInstanceOfArray(object obj)
+    {
+        if (obj is Array)
+            return(true);
+        else
+            return(false);
+    }
 }

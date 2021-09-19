@@ -1,20 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Text
 {
+    /// <summary>
+    /// This is our class Matrix.
+    /// </summary>
     public class Str
     {
+        /// <summary>
+        /// This is our class Matrix.
+        /// </summary>
         public static bool IsPalindrome(string s)
         {
-            s = s.ToLower();
+            string new_string = String.Join("", s.ToLower().Split(' ', ',', '.', ':', ';', '\''));
+            int strLen = new_string.Length - 1;
 
-            for (int i = 0, j = s.Length - 1; i < s.Length; i++)
+            foreach (char letter in new_string)
             {
-                if (!Char.IsLetterOrDigit(s[i]) || !Char.IsLetterOrDigit(s[j]))
-                    continue;
-                else if (s[i] != s[j])
+                if ( letter != new_string[strLen])
                     return false;
-                j--;
+                strLen--;
             }
             return true;
         }

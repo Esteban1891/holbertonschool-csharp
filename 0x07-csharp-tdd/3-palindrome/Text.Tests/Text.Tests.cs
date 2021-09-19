@@ -1,57 +1,40 @@
 using NUnit.Framework;
+using Text;
 
 namespace Text.Tests
 {
-    [TestFixture]
     public class Tests
     {
-        [Test]
-        public void RegularString([Values("level", "racecar")] string s)
-        {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, true);
-        }
 
         [Test]
-        public void CaseSensitiveString([Values("Level", "racecaR")] string s)
+        public void Test_Palindrome_01()
         {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, true);
+            Assert.AreEqual(true, Str.IsPalindrome(""));
         }
-
         [Test]
-        public void StringWithPunctuation([Values("A man, a plan, a canal: Panama.")] string s)
+        public void Test_Palindrome_02()
         {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, true);
+            Assert.AreEqual(true, Str.IsPalindrome("Reconocer"));
         }
-
         [Test]
-        public void EmptyString([Values("")] string s)
+        public void Test_Palindrome_03()
         {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, true);
+            Assert.AreEqual(false, Str.IsPalindrome("hello"));
         }
-
         [Test]
-        public void NotPalindrome([Values("This", "is", "not", "palindrome")] string s)
+        public void Test_Palindrome_04()
         {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, false);
+            Assert.AreEqual(true, Str.IsPalindrome("A man, a plan, a canal: Panama."));
         }
-
         [Test]
-        public void StringWithQuotes([Values("\"\"")] string s)
+        public void Test_Palindrome_05()
         {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, true);
+            Assert.AreEqual(true, Str.IsPalindrome("Desserts, I stressed"));
         }
-
         [Test]
-        public void OneLengthString([Values(" ", "t")] string s)
+        public void Test_Palindrome_06()
         {
-            bool result = Str.IsPalindrome(s);
-            Assert.AreEqual(result, true);
+            Assert.AreEqual(true, Str.IsPalindrome("Red rum, sir, is murder"));
         }
     }
 }

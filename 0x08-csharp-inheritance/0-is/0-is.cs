@@ -1,11 +1,18 @@
-using System;
+﻿using System;
 
-/// <summary>Represents an object.</summary>
+/// <summary>
+/// This is our class Zombie.
+/// </summary>
 class Obj
 {
-	/// <summary>Checks if the specified object is of int type.</summary>
-	public static bool IsOfTypeInt(object obj)
-	{
-		return obj.GetType() == typeof(int);
-	}
+    /// <summary>
+    /// This is our class Zombie.
+    /// </summary>
+    public static bool IsOfTypeInt(object obj)
+    {
+        if (obj.GetType() == typeof(int))
+            return(true);
+        else
+            return(false);
+    }
 }

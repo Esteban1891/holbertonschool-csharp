@@ -1,15 +1,18 @@
-using System;
+﻿using System;
 
 class Number
 {
     public static int PrintLastDigit(int number)
     {
-        if (number % 10 < 0)
+        if (number < 0)
         {
             Console.Write((number % 10) * -1);
-            return ((number % 10) * -1);
+            return((number % 10) * -1);
         }
-        Console.Write(number % 10);
-        return number % 10;
+        else
+        {
+            Console.Write(number % 10);
+            return(number % 10);
+        }
     }
 }

@@ -1,22 +1,30 @@
-using System;
+﻿using System;
 
-
-///<summary>Initialize class.</summary>
 class VectorMath
 {
-	///<summary>Multiplies a vector by a number.</summary>
-	///<param name="vector">The vector to multiply.</param>
-	///<param name="scalar">The multiplier.</param>
-	///<returns>A new vector.</returns>
-	public static double[] Multiply(double[] vector, double scalar)
-	{
-		if (vector.Length < 2 || vector.Length > 3)
-			return new double[] { -1 };
+    public static double[] Multiply(double[] vector, double scalar)
+    {
+        double[] mul = new double[2];
+        int i;
 
-		double[] result = new double[vector.Length];
-		for (int i = 0; i < vector.Length; i++)
-			result[i] = vector[i] * scalar;
+        if (vector.Length < 2 || vector.Length > 3)
+        {
+            for (i = 0 ; i < 2 ; i++)
+                mul[i] = -1;
+            return mul;
+        }
 
-		return result;
-	}
+        int len;
+        if  (vector.Length == 2)
+            len = 2;
+        else
+            len = 3;
+
+        int vector_lenght = vector.Length;
+        double[] mul2 = new double[len];
+        for (i = 0 ; i < vector_lenght ; i++)
+            mul2[i] = (vector[i] * scalar);
+
+        return mul2;
+    }
 }

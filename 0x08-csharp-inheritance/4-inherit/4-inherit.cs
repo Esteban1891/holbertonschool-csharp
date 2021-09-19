@@ -1,7 +1,15 @@
-///<summary>Defines an Animal.</summary>
-class Animal
-{}
+﻿using System;
 
-///<summary>Defines a Dog.</summary>
+/// <summary>
+/// This is our class Zombie.
+/// </summary>
+class Animal
+{
+}
+
+/// <summary>
+/// This is our class Zombie.
+/// </summary>
 class Dog : Animal
-{}
+{
+}

@@ -1,19 +1,27 @@
-using System;
+﻿using System;
+using System.Reflection;
 
-/// <summary>Represents an object.</summary>
+/// <summary>
+/// This is our class Zombie.
+/// </summary>
 class Obj
 {
-	/// <summary>Prints the methods and properties of the object.</summary>
-	public static void Print(object myObj)
-	{
-		Type type = myObj.GetType();
+    /// <summary>
+    /// This is our class Zombie.
+    /// </summary>
+    public static void Print(object myObj)
+    {
+        Type t = myObj.GetType();
+        TypeInfo myType = t.GetTypeInfo();
+        PropertyInfo[] props = t.GetProperties();
+        MethodInfo[] methods = t.GetMethods();
 
-		Console.WriteLine(type.Name + " Properties:");
-		foreach (var property in type.GetProperties())
-			Console.WriteLine(property.Name);
+        Console.WriteLine(myType.Name + " Properties:");
+        foreach (var element in props)
+            Console.WriteLine(element.Name);
 
-		Console.WriteLine(type.Name + " Methods:");
-		foreach (var method in type.GetMethods())
-			Console.WriteLine(method.Name);
-	}
+        Console.WriteLine(myType.Name + " Methods:");
+        foreach (var element in methods)
+            Console.WriteLine(element.Name);
+    }
 }

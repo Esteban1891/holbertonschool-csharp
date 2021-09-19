@@ -1,4 +1,3 @@
-﻿  
 using System;
 
 class Program
@@ -7,6 +6,6 @@ class Program
 	{
 		double percent = .7553;
 		double currency = 98765.4321;
-		Console.WriteLine($"Percent: {percent:0.00%}\nCurrency: {currency.ToString("C", new System.Globalization.CultureInfo("en-US"))}");
+		Console.WriteLine($"Percent: {percent:0.00%} tip\nCurrency: {currency:C}");
 	}
 }

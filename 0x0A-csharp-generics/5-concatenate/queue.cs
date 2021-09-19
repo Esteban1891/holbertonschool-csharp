@@ -1,111 +1,146 @@
 ﻿using System;
 
-///<summary>Generic queue class implementation.</summary>
+/// <summary>
+/// This is Queue.
+/// </summary>
 public class Queue<T>
 {
-    ///<summary>Head of a queue.</summary>
-    public Node head = null;
-    ///<summary>Tail of a queue.</summary>
-    public Node tail = null;
-    int count = 0;
-
-    ///<summary>Checks type of parameter.</summary>
-    public string CheckType()
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
+    public Type CheckType()
     {
-        return (typeof(T).ToString());
+        return(typeof(T));
     }
-    ///<summary>Adds to a queue.</summary>
-    public void Enqueue(T val)
+
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
+    public class Node
     {
-        Node neu = new Node(val);
-        if (head == null && tail == null)
+        /// <summary>This is Queue empty class.</summary>
+        public T value = default(T);
+        /// <summary>This is Queue empty class.</summary>
+        public Node next = null;
+
+        /// <summary>This is Queue empty class.</summary>
+        public Node(T var)
         {
-            head = neu;
-            tail = neu;
+            value = var;
+        }
+    }
+
+    /// <summary>This is Queue empty class.</summary>
+    public Node head = null;
+    /// <summary>This is Queue empty class.</summary>
+    public Node tail = null;
+    /// <summary>This is Queue empty class.</summary>
+    public int count;
+
+    /// <summary>This is Queue empty class.</summary>
+    public void Enqueue(T value)
+    {
+        Node newNode = new Node(value);
+        if (head == null)
+        {
+            head = newNode;
+            tail = newNode;
         }
         else
         {
-            tail.next = neu;
-            tail = neu;
+            tail.next = newNode;
+            tail = newNode;
         }
-        count += 1;
+        count++;
     }
-    ///<summary>Removes from a queue.</summary>
+    /// <summary>This is Queue empty class.</summary>
     public T Dequeue()
     {
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return (default(T));
+            return(default(T));
         }
-        Node old = head;
-        head = old.next;
-        count -= 1;
-        return (old.value);
+
+        Node tmp = head;
+        head = head.next;
+        count--;
+        return(tmp.value);
     }
-    ///<summary>Peeks at a queue.</summary>
+
+    /// <summary>This is Queue empty class.</summary>
     public T Peek()
     {
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return (default(T));
+            return(default(T));
         }
-        return (head.value);
+
+        return(head.value);
     }
-    ///<summary>Prints a queue.</summary>
+    /// <summary>This is Queue empty class.</summary>
     public void Print()
     {
-        Node strider = head;
-        if (strider == null)
+        if (head == null)
             Console.WriteLine("Queue is empty");
-        while (strider != null)
+        else
         {
-            Console.WriteLine(strider.value.ToString());
-            strider = strider.next;
+            Node tmp = head;
+            while (tmp != null)
+            {
+                Console.WriteLine(tmp.value);
+                tmp = tmp.next;
+            }
         }
     }
-    ///<summary>Counts a queue.</summary>
-    public int Count()
-    {
-        return (count);
-    }
-    ///<summary>Counts a queue.</summary>
-    public string Concatenate()
+
+    /// <summary>This is Queue empty class.</summary>
+    public T Concatenate()
     {
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return (null);
+            return default(T);
         }
-        if (typeof(T) != typeof(string) && typeof(T) != typeof(char))
-        {
-            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
-            return (null);
-        }
-        string cats = "";
-        Node strider = head;
-        while (strider != null)
-        {
-            cats = cats + strider.value.ToString();
-            if (strider != tail && typeof(T) == typeof(string))
-                cats += " ";
-            strider = strider.next;
-        }
-        return (cats);
-    }
-    ///<summary>Queue nodes.</summary>
-    public class Node
-    {
-        ///<summary>Value of a node.</summary>
-        public T value = default(T);
-        ///<summary>Next node.</summary>
-        public Node next = null;
 
-        ///<summary>Constructor for Node.</summary>
-        public Node (T t)
+        if (CheckType() == typeof(String))
         {
-            value = t;
+            Node tmp = head;
+            string str = "";
+            while (tmp != null)
+            {
+                str += tmp.value;
+                if (tmp.next != null)
+                    str += " ";
+                tmp = tmp.next;
+            }
+            Console.Write(str);
         }
+
+        else if (CheckType() == typeof(Char))
+        {
+            Node tmp = head;
+            string chara = "";
+            while (tmp != null)
+            {
+                chara += tmp.value;
+                tmp = tmp.next;
+            }
+            Console.Write(chara);
+        }
+
+        else
+        {
+            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only");
+        }
+
+        return(default(T));
+    }
+
+    /// <summary>This is Queue empty class.</summary>
+    public int Count()
+    {
+        return(count);
     }
 }

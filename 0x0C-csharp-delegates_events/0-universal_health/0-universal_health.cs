@@ -1,29 +1,38 @@
 ﻿using System;
 
-///<summary>Player class</summary>
+/// <summary>This is Interact.</summary>
 public class Player
 {
-    private string name;
-    private float maxHp;
-    private float hp;
+    /// <summary>This is name string variable.</summary>
+    public string name;
 
-    ///<summary>Constructor for Player class.</summary>
+    /// <summary>This is maxHP float variable.</summary>
+    public float maxHp;
+
+    /// <summary>This is hp float variable.</summary>
+    public float hp;
+
+    /// <summary>This is Player constructor.</summary>
     public Player(string name = "Player", float maxHp = 100f)
     {
-        if (maxHp <= 0f)
+        this.name = name;
+        this.maxHp = maxHp;
+
+        if (maxHp > 0)
         {
-            Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
-            this.maxHp = 100f;
+            this.hp = maxHp;
         }
         else
-            this.maxHp = maxHp;
-        this.name = name;
-        this.hp = this.maxHp;
+        {
+            this.maxHp = 100f;
+            this.hp = 100f;
+            Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
+        }
     }
 
-    ///<summary>Prints Player health.</summary>
+    /// <summary>This is PrintHealth Method.</summary>
     public void PrintHealth()
     {
-        Console.WriteLine($"{this.name} has {this.hp} / {this.maxHp} health");
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 }

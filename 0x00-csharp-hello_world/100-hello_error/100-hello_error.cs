@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace _100_hello_error
 {

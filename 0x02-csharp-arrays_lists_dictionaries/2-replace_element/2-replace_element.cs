@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 class Array
 {
@@ -7,9 +7,9 @@ class Array
         if (index < 0 || index >= array.Length)
         {
             Console.WriteLine("Index out of range");
-            return array;
+            return(array);
         }
         array[index] = n;
-        return array;
+        return(array);
     }
 }

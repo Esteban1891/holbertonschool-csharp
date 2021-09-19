@@ -1,57 +1,54 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using MyMath;
 
 namespace MyMath.Tests
 {
-    [TestFixture]
     public class Tests
     {
         [Test]
-        public void SortedList()
+        public void Test_Max_01()
         {
-            List<int> nums = new List<int>{ 1, 2, 3, 4, 5, 6 };
-            int result = Operations.Max(nums);
-            Assert.AreEqual(result, 6);
+            List<int> new_list = new List<int>(4);
+            int res = Operations.Max(new_list);
+            Assert.AreEqual(0, res);
         }
-
         [Test]
-        public void UnsortedList()
+        public void Test_Max_02()
         {
-            List<int> nums = new List<int>{ 2, 1, 6, 4, 7, 1, 98, 23, 93 };
-            int result = Operations.Max(nums);
-            Assert.AreEqual(result, 98);
+            List<int> new_list = null;
+            int res = Operations.Max(new_list);
+            Assert.AreEqual(0, res);
         }
-
-        [Test]
-        public void EmptyList()
+        public void Test_Max_03()
         {
-            List<int> nums = new List<int>();
-            int result = Operations.Max(nums);
-            Assert.AreEqual(result, 0);
+            List<int> new_list = new List<int>();
+            new_list.Add(2);
+            new_list.Add(8);
+            new_list.Add(54);
+            new_list.Add(14);
+            int res = Operations.Max(new_list);
+            Assert.AreEqual(54, res);
         }
-
-        [Test]
-        public void LengthOneList()
+        public void Test_Max_04()
         {
-            List<int> nums = new List<int>{ 90 };
-            int result = Operations.Max(nums);
-            Assert.AreEqual(result, 90);
+            List<int> new_list = new List<int>();
+            new_list.Add(-2);
+            new_list.Add(8);
+            new_list.Add(-54);
+            new_list.Add(14);
+            int res = Operations.Max(new_list);
+            Assert.AreEqual(14, res);
         }
-
-        [Test]
-        public void MultpleMaximuns()
+        public void Test_Max_05()
         {
-            List<int> nums = new List<int>{ 23, 23, 23, 2, 22, 10 };
-            int result = Operations.Max(nums);
-            Assert.AreEqual(result, 23);
-        }
-
-        [Test]
-        public void NegativeIntegers()
-        {
-            List<int> nums = new List<int>{ -50, -48, -100, -999, -5};
-            int result = Operations.Max(nums);
-            Assert.AreEqual(result, -5);
+            List<int> new_list = new List<int>();
+            new_list.Add(-2);
+            new_list.Add(-8);
+            new_list.Add(-54);
+            new_list.Add(-14);
+            int res = Operations.Max(new_list);
+            Assert.AreEqual(-2, res);
         }
     }
 }

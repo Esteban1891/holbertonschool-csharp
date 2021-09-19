@@ -1,17 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 class LList
 {
-	public static int Sum(LinkedList<int> myLList)
-	{
-		int sum = 0;
+    public static int Sum(LinkedList<int> myLList)
+    {
+        int sum = 0;
 
-		foreach (var num in myLList)
-		{
-			sum += num;
-		}
-
-		return sum;
-	}
+        foreach (int i in myLList)
+        {
+            sum += i;
+        }
+        return(sum);
+    }
 }
