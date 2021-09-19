@@ -1,15 +1,17 @@
 ﻿using System;
 
 /// <summary>
-/// This is Queue.
+/// A Queue class
 /// </summary>
-public class Queue<T>
+/// <typeparam name="T">The type the Queue contains</typeparam>
+class Queue<T>
 {
     /// <summary>
-    /// This is Queue empty class.
+    /// Get the type that the Queue contains
     /// </summary>
+    /// <returns>The type of the Queue</returns>
     public Type CheckType()
     {
-        return(typeof(T));
+        return typeof(T);
     }
 }

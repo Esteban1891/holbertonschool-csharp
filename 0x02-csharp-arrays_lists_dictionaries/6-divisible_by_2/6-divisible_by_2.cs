@@ -5,18 +5,13 @@ class List
 {
     public static List<bool> DivisibleBy2(List<int> myList)
     {
-        List<bool> resultList = new List<bool>();
-        for (int pos = 0; pos < myList.Count; pos++)
+        List<bool> ret = new List<bool>();
+
+        foreach (int val in myList)
         {
-            if (myList[pos] % 2 == 0)
-            {
-                resultList.Add(true);
-            }
-            else
-            {
-                resultList.Add(false);
-            }
+            ret.Add(val % 2 == 0);
         }
-        return resultList;
+
+        return ret;
     }
 }

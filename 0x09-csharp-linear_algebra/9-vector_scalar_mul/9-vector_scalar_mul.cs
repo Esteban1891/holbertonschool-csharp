@@ -1,30 +1,27 @@
 ﻿using System;
+using System.Linq;
 
+/// <summary>
+/// Contains Vector Math methods
+/// </summary>
 class VectorMath
 {
+    /// <summary>
+    /// Multiplies a vector by a scalar
+    /// </summary>
+    /// <param name="vector">A vector of doubles</param>
+    /// <param name="scalar">The scalar to multiply the vector by</param>
+    /// <returns>A new vector </returns>
     public static double[] Multiply(double[] vector, double scalar)
     {
-        double[] mul = new double[2];
-        int i;
-
         if (vector.Length < 2 || vector.Length > 3)
-        {
-            for (i = 0 ; i < 2 ; i++)
-                mul[i] = -1;
-            return mul;
-        }
+            return new double[1] {-1};
 
-        int len;
-        if  (vector.Length == 2)
-            len = 2;
-        else
-            len = 3;
+        double[] ret = new double[vector.Length];
 
-        int vector_lenght = vector.Length;
-        double[] mul2 = new double[len];
-        for (i = 0 ; i < vector_lenght ; i++)
-            mul2[i] = (vector[i] * scalar);
+        for (uint i = 0; i < vector.Length; i++)
+            ret[i] = vector[i] * scalar;
 
-        return mul2;
+        return ret;
     }
 }

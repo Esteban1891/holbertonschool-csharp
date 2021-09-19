@@ -4,26 +4,29 @@ class Array
 {
     public static int[] CreatePrint(int size)
     {
-        int i;
-
-        if (size == 0)
-        {
-            Console.Write('\n');
-        }
-        else if (size < 0)
+        if (size < 0)
         {
             Console.WriteLine("Size cannot be negative");
-            return (null);
+            return null;
         }
-        int[] new_array = new int[size];
-        for (i = 0 ; i < new_array.Length ; i++)
+
+        int[] ret = new int[size];
+
+        for (int i = 0; i < ret.Length; i++)
         {
-            new_array[i] = i;
-            if (i < new_array.Length - 1)
-                Console.Write(new_array[i] + " ");
+            ret[i] = i;
+
+            if (i == ret.Length - 1)
+            {
+                Console.Write(ret[i]);
+            }
             else
-                Console.WriteLine(new_array[i]);
+            {
+                Console.Write($"{ret[i]} ");
+            }
         }
-        return(new_array);
+        Console.WriteLine("");
+
+        return ret;
     }
 }

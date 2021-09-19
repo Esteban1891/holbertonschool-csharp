@@ -1,21 +1,15 @@
 ﻿using System;
 
-namespace _5_print_comb
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        for (int i = 0; i < 100; i++)
         {
-            int num;
-            for (num = 0 ; num <= 99 ; num++)
-            {
-                if (num < 99)
-                    Console.Write($"{num:00}, ");
-                else if (num == 99)
-                {
-                    Console.WriteLine($"{num:00}");
-                }
-            }
+            if (i == 99)
+                Console.WriteLine(i);
+            else
+                Console.Write("{0:D2}, ", i);
         }
     }
 }

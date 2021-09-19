@@ -1,40 +1,23 @@
 ﻿using System;
 
-/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-    /// <summary>This is the class object.</summary>
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
-        double cosinangle = Math.Cos(angle);
-        double sinangle = Math.Sin(angle);
+        if (matrix.Rank != 2 || matrix.GetLength(1) != 2)
+            return new double[1,1] { {-1} };
 
-        double[,] rotateMatrix = new double[,] {
-            {cosinangle, sinangle},
-            {-sinangle, cosinangle}
-        };
+        double cos = Math.Cos(angle);
+        double sin = Math.Sin(angle);
 
-        if (matrix is double[,] && matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
+        double[,] res = new double[matrix.GetLength(0), 2];
+
+        for (uint i = 0; i < matrix.GetLength(0); i++)
         {
-            int rowMat1 = matrix.GetLength(0); // Elements of vector == Rows
-            int colMat1 = matrix.GetLength(1); // Vectors / Columns
-            int colMat2 = rotateMatrix.GetLength(1); // Vectors / Columns
-            int rowMat2 = rotateMatrix.GetLength(0); // Elements of vector == Rows
-
-            double[,] mulMatrix = new double[rowMat1, colMat2];
-
-            for (int col = 0; col < colMat1; col++)
-            {
-                for (int row = 0; row < rowMat1; row++)
-                {
-                    for (int rxc = 0; rxc < colMat2; rxc++)
-                    {
-                        mulMatrix[row, rxc] = Math.Round(mulMatrix[row, rxc] + matrix[row, col] * rotateMatrix[col, rxc], 2);
-                    }
-                }
-            }
-            return mulMatrix;
+            res[i, 0] = Math.Round(matrix[i, 0] * cos - matrix[i, 1] * sin, 2);
+            res[i, 1] = Math.Round(matrix[i, 0] * sin + matrix[i, 1] * cos, 2);
         }
-        else  { return new double[,]{{-1}}; }
+
+        return res;
     }
 }

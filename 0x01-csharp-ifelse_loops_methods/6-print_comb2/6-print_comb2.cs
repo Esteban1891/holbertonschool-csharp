@@ -1,34 +1,23 @@
 ﻿using System;
 
-namespace _6_print_comb2
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        for (int i = 0; i < 10; i++)
         {
-            int i;
-            int j;
-            int counter = 0;
-            for (i = 0 ; i <= 9 ; i++)
+            for (int j = i + 1; j < 10; j++)
             {
-                counter++;
-                for (j = i + 0 ; j <= 9 ; j++)
+                if (i == 0 && j == 1)
                 {
-                    if (j < counter)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        Console.Write($"{i}{j}");
-                        if (i != 8 || j != 9)
-                        {
-                            Console.Write(", ");
-                        }
-                    }
+                    Console.Write("{0}{1}", i, j);
+                }
+                else
+                {
+                    Console.Write(", {0}{1}", i, j);
                 }
             }
-            Console.Write("\n");
         }
+        Console.WriteLine("");
     }
 }

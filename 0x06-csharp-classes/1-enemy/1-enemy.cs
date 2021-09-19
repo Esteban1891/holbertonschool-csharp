@@ -3,14 +3,21 @@
 namespace Enemies
 {
     /// <summary>
-    /// This is our class Zombie.
+    /// A simple Zombie class
     /// </summary>
-    class Zombie
+    public class Zombie
     {
+        /// <summary>
+        /// The health of the Zombie
+        /// </summary>
         public int health;
+
+        /// <summary>
+        /// Constructor for the Zombie
+        /// </summary>
         public Zombie()
         {
-            health = 0;
+            this.health = 0;
         }
     }
 }

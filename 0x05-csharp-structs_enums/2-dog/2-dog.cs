@@ -1,22 +1,23 @@
 ﻿using System;
-
 public enum Rating
 {
     Good,
     Great,
     Excellent
 }
+
 public struct Dog
 {
     public string name;
     public float age;
     public string owner;
     public Rating rating;
-    public Dog(string name, float age, string owner, Rating rating)
+
+    public Dog(string n, float a, string o, Rating r)
     {
-        this.name = name;
-        this.age = age;
-        this.owner = owner;
-        this.rating = rating;
+        name = n;
+        age = a;
+        owner = o;
+        rating = r;
     }
 }

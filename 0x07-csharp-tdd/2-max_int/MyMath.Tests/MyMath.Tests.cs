@@ -1,54 +1,53 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using MyMath;
 
-namespace MyMath.Tests
+namespace Tests
 {
     public class Tests
     {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
         [Test]
-        public void Test_Max_01()
+        public void Max_PositiveInts_ReturnsMax()
         {
-            List<int> new_list = new List<int>(4);
-            int res = Operations.Max(new_list);
-            Assert.AreEqual(0, res);
+            List<int> input = new List<int> {1, 2, 3, 4, 5};
+
+            int output = MyMath.Operations.Max(input);
+
+            Assert.AreEqual(5, output);
         }
+
         [Test]
-        public void Test_Max_02()
+        public void Max_NegativeInts_ReturnsMax()
         {
-            List<int> new_list = null;
-            int res = Operations.Max(new_list);
-            Assert.AreEqual(0, res);
+            List<int> input = new List<int> {-1, -2, -3, -4, -5};
+
+            int output = MyMath.Operations.Max(input);
+
+            Assert.AreEqual(-1, output);
         }
-        public void Test_Max_03()
+
+        [Test]
+        public void Max_EmptyList_ReturnsZero()
         {
-            List<int> new_list = new List<int>();
-            new_list.Add(2);
-            new_list.Add(8);
-            new_list.Add(54);
-            new_list.Add(14);
-            int res = Operations.Max(new_list);
-            Assert.AreEqual(54, res);
+            List<int> input = new List<int>();
+
+            int output = MyMath.Operations.Max(input);
+
+            Assert.AreEqual(0, output);
         }
-        public void Test_Max_04()
+
+        [Test]
+        public void Max_NullList_ReturnsZero()
         {
-            List<int> new_list = new List<int>();
-            new_list.Add(-2);
-            new_list.Add(8);
-            new_list.Add(-54);
-            new_list.Add(14);
-            int res = Operations.Max(new_list);
-            Assert.AreEqual(14, res);
-        }
-        public void Test_Max_05()
-        {
-            List<int> new_list = new List<int>();
-            new_list.Add(-2);
-            new_list.Add(-8);
-            new_list.Add(-54);
-            new_list.Add(-14);
-            int res = Operations.Max(new_list);
-            Assert.AreEqual(-2, res);
+            List<int> input = null;
+
+            int output = MyMath.Operations.Max(input);
+
+            Assert.AreEqual(0, output);
         }
     }
 }

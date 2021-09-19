@@ -5,12 +5,13 @@ class LList
 {
     public static int Length(LinkedList<int> myLList)
     {
-        int counter = 0;
+        int count = 0;
 
-        foreach (int i in myLList)
+        foreach (int val in myLList)
         {
-            counter++;
+            count++;
         }
-        return(counter);
+
+        return count;
     }
 }

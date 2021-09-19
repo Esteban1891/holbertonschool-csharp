@@ -3,16 +3,19 @@
 namespace MyMath
 {
     /// <summary>
-    /// This is our class Operators.
+    /// Basic math operations
     /// </summary>
     public class Operations
     {
         /// <summary>
-        /// This is our class public static int Add.
+        /// Adds two paramaters together and returns the sum.
         /// </summary>
+        /// <param name="a">The first number.</param>
+        /// <param name="b">The second number.</param>
+        /// <returns>The sum of a and b.</returns>
         public static int Add(int a, int b)
         {
-            return(a + b);
+            return a + b;
         }
     }
 }

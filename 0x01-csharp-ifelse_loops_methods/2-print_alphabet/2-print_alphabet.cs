@@ -1,16 +1,10 @@
 ﻿using System;
 
-namespace _2_print_alphabet
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            char alphabet = 'a';
-            for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
-            {
-                Console.Write(alphabet);
-            }
-        }
+        for (char i = 'a'; i <= 'z'; i++)
+            Console.Write(i);
     }
 }

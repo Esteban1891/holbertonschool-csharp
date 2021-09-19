@@ -1,19 +1,13 @@
 ﻿using System;
 
-namespace _3_print_alphabt
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        for (char i = 'a'; i <= 'z'; i++)
         {
-            char alphabet = 'a';
-            for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
-            {
-                if (alphabet == 'q' || alphabet == 'e')
-                    continue;
-                else
-                    Console.Write(alphabet);
-            }
+            if (i != 'q' && i != 'e')
+                Console.Write(i);
         }
     }
 }

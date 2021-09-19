@@ -3,21 +3,35 @@
 namespace Enemies
 {
     /// <summary>
-    /// This is our class Zombie.
+    /// A simple Zombie class
     /// </summary>
-    class Zombie
+    public class Zombie
     {
+        /// <summary>
+        /// The health of the Zombie
+        /// </summary>
         public int health;
+
+        /// <summary>
+        /// Constructor for the Zombie
+        /// </summary>
         public Zombie()
         {
-            health = 0;
+            this.health = 0;
         }
+
+        /// <summary>
+        /// Constructor for the Zombie
+        /// </summary>
+        /// <param name="value">Health</param>
         public Zombie(int value)
         {
-            if (value >= 0)
-                this.health = value;
-            else if (value < 0)
+            if (value < 0)
+            {
                 throw new ArgumentException("Health must be greater than or equal to 0");
+            }
+
+            this.health = value;
         }
     }
 }

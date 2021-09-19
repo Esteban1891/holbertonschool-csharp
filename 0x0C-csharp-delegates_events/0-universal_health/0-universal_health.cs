@@ -1,36 +1,56 @@
 ﻿using System;
 
-/// <summary>This is Interact.</summary>
-public class Player
+/// <summary>
+/// Class containing Player details and functions
+/// </summary>
+class Player
 {
-    /// <summary>This is name string variable.</summary>
-    public string name;
+    /// <summary>
+    /// The name of the player
+    /// </summary>
+    private string name { get; set; }
 
-    /// <summary>This is maxHP float variable.</summary>
-    public float maxHp;
+    private float _maxHp;
+    /// <summary>
+    /// The maximum HP of the player
+    /// </summary>
+    private float maxHp
+    {
+        get { return _maxHp; }
+        set
+        {
+            if (value < 0f)
+            {
+                Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
+                _maxHp = 100f;
+            }
+            else
+            {
+                _maxHp = value;
+            }
+        }
+    }
 
-    /// <summary>This is hp float variable.</summary>
-    public float hp;
+    /// <summary>
+    /// The current HP of the player
+    /// </summary>
+    private float hp { get; set; }
 
-    /// <summary>This is Player constructor.</summary>
+    /// <summary>
+    /// Player constructor
+    /// </summary>
+    /// <param name="name">The name to be given to the player, "Player" by default</param>
+    /// <param name="maxHp">The maximum HP the player can have, 100 by default</param>
     public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
         this.maxHp = maxHp;
-
-        if (maxHp > 0)
-        {
-            this.hp = maxHp;
-        }
-        else
-        {
-            this.maxHp = 100f;
-            this.hp = 100f;
-            Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
-        }
+        this.hp = this.maxHp;
     }
 
-    /// <summary>This is PrintHealth Method.</summary>
+    /// <summary>
+    /// Print out the player's health
+    /// </summary>
     public void PrintHealth()
     {
         Console.WriteLine($"{name} has {hp} / {maxHp} health");

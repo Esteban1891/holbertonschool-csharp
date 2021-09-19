@@ -5,22 +5,20 @@ class List
 {
     public static int SafePrint(List<int> myList, int n)
     {
-        //List<int> new_list = new List<int>();
-        int i;
-        int printed_elements = 0;
+        int printed = 0;
 
-        try
+        for (; printed < n; printed++)
         {
-            for (i = 0 ; i < n ; i++)
+            try
             {
-                Console.WriteLine(myList[i]);
-                printed_elements++;
+                Console.WriteLine(myList[printed]);
+            }
+            catch
+            {
+                return printed;
             }
         }
-        catch (Exception)
-        {
-            Console.Write("");
-        }
-        return(printed_elements);
+
+        return printed;
     }
 }

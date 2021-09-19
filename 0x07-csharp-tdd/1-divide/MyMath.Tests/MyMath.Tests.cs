@@ -1,51 +1,63 @@
 using NUnit.Framework;
-using MyMath;
+using System;
 
-namespace MyMath.Tests
+namespace Tests
 {
     public class Tests
     {
-        [Test]
-        public void Test_zero()
+        [SetUp]
+        public void Setup()
         {
-            int[,] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-            int[,] result = Matrix.Divide(matrix, 0);
-            Assert.Null(result);
         }
 
-        [TestCase(2)]
-        [TestCase(-3)]
-        public void test_Matrix_null(int value)
-        {
-            int[,] matrix = null;
-            int[,] result = Matrix.Divide(matrix, 3);
-            Assert.Null(result);
-        }
         [Test]
-        public void test_matrix_number()
+        public void Divide_PositiveMatrixAndDivisor_ReturnsQuotient()
         {
-            int[,] matrix = {{2, 4}, {6, 8}};
-            int[,] result = Matrix.Divide(matrix, 2);
-            int[,] expected = {{1, 2}, {3, 4}};
-            Assert.AreEqual(expected, result);
+            int[,] input = new int[,] {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+            };
+
+            int [,] output = MyMath.Matrix.Divide(input, 2);
+
+            int[,] expectedOutput = new int[,] {
+                {0, 1, 1},
+                {2, 2, 3},
+                {3, 4, 4}
+            };
+
+            Assert.AreEqual(output, expectedOutput);
         }
+
         [Test]
-        public void test_matrix_negative()
+        public void Divide_PositiveMatrixZeroDivisor_ReturnsNull()
         {
-            int[,] matrix = {{3, 6, 9}, {12, 15, 18}};
-            int n = -3;
-            int[,] expected = {{-1, -2, -3}, {-4, -5, -6}};
-            int[,] result = Matrix.Divide(matrix, n);
-            Assert.AreEqual(expected, result);
+            int[,] input = new int[,] {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+            };
+           
+            int [,] output = MyMath.Matrix.Divide(input, 0);
+
+            Assert.IsNull(output);
         }
+
         [Test]
-        public void test_matrix_negative_and_positive()
+        public void Divide_NullMatrixPositiveDivisor_ReturnsNull()
         {
-            int[,] matrix = {{3, -6, 9}, {-12, 15, -18}};
-            int n = -3;
-            int[,] expected = {{-1, 2, -3}, {4, -5, 6}};
-            int[,] result = Matrix.Divide(matrix, n);
-            Assert.AreEqual(expected, result);
+            int [,] output = MyMath.Matrix.Divide(null, 2);
+
+            Assert.IsNull(output);
+        }
+
+        [Test]
+        public void Divide_NullMatrixAndZeroDivisor_ReturnsNull()
+        {
+            int [,] output = MyMath.Matrix.Divide(null, 0);
+
+            Assert.IsNull(output);
         }
     }
 }

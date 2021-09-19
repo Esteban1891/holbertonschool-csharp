@@ -1,24 +1,23 @@
 using NUnit.Framework;
-using MyMath;
 
-namespace MyMath.Test
+namespace MyMath.Tests
 {
-    [TestFixture]
     public class Tests
     {
-        [Test]
-        public void Test_Add_20_from_12_8()
+        [SetUp]
+        public void Setup()
         {
-            Assert.AreEqual(22, Operations.Add(12, 10));
         }
 
-        [TestCase(15, 10, 25)]
-        [TestCase(-15, 10, -5)]
-        [TestCase(15000, 10, 15010)]
-        [TestCase(0, 0, 0)]
-        public void Test_Operatins_Add(int a, int b, int res)
+        [TestCase(1, 1)]
+        [TestCase(2, 2)]
+        [TestCase(-2, -2)]
+        [TestCase(-47, 12)]
+        public void Add_Values_ReturnsSum(int a, int b)
         {
-            Assert.AreEqual(res, Operations.Add(a, b));
+            int result = MyMath.Operations.Add(a, b);
+
+            Assert.AreEqual(result, a + b);
         }
     }
 }

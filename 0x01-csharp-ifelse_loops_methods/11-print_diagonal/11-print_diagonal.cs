@@ -4,22 +4,12 @@ class Line
 {
     public static void PrintDiagonal(int length)
     {
-        int repetitions, spaces;
-        if (length <= 0)
-            Console.Write("\n");
-        else
+        for (int i = 0; i < length; i++)
         {
-            for (repetitions = 0 ; repetitions < length ; repetitions++)
-            {
-                for (spaces = 0 ; spaces < repetitions ; spaces++)
-                {
-                    Console.Write(" ");
-                }
-                Console.Write("\\");
-                if (repetitions != length - 1)
-                    Console.Write("\n");
-            }
-            Console.Write("\n");
+            for (int j = 0; j < i; j++)
+                Console.Write(" ");
+            Console.WriteLine("\\");
         }
+        Console.WriteLine("");
     }
 }

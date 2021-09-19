@@ -1,74 +1,72 @@
 ﻿using System;
 
 /// <summary>
-/// This is our class Zombie.
+/// Base class for shapes
 /// </summary>
 class Shape
 {
+    /// <summary>
+    /// Method to be overriden by children to get the area
+    /// </summary>
+    /// <returns>The area of the shape.</returns>
     public virtual int Area()
     {
         throw new NotImplementedException("Area() is not implemented");
     }
 }
 
-/// <summary>
-/// This is our class Zombie.
-/// </summary>
 class Rectangle : Shape
 {
     private int width;
     private int height;
+
     public int Width
     {
-        get { return(width); }
-        set
-        {
+        get { return this.width; }
+        set {
             if (value < 0)
                 throw new ArgumentException("Width must be greater than or equal to 0");
-            else
-                width = value;
+            
+            this.width = value;
         }
     }
+
     public int Height
     {
-        get { return(height); }
-        set
-        {
+        get { return this.height; }
+        set {
             if (value < 0)
                 throw new ArgumentException("Height must be greater than or equal to 0");
-            else
-                height = value;
+            
+            this.height = value;
         }
     }
+
     public new int Area()
     {
-        return(this.width * this.height);
+        return this.Width * this.Height;
     }
+
     public override string ToString()
     {
-        return($"[Rectangle] {this.width} / {this.height}");
+        return $"[Rectangle] {this.Width} / {this.Height}";
     }
 }
 
-/// <summary>
-/// This is our class Zombie.
-/// </summary>
 class Square : Rectangle
 {
     private int size;
+
     public int Size
     {
-        get { return(size); }
-        set
-        {
+        get { return size; }
+        set {
             if (value < 0)
                 throw new ArgumentException("Size must be greater than or equal to 0");
-            else
-                {
-                    size = value;
-                    Height = value;
-                    Width = value;
-                }
+
+            this.size = value;
+            this.Width = value;
+            this.Height = value;
         }
     }
 }

@@ -5,22 +5,28 @@ class List
 {
     public static List<int> CreatePrint(int size)
     {
-        int i;
-        List<int> new_list = new List<int>();
         if (size < 0)
         {
             Console.WriteLine("Size cannot be negative");
-            return (null);
+            return null;
         }
-        for (i = 0 ; i <= size - 1 ; i++)
+
+        List<int> list = new List<int>();
+        for (int i = 0; i < size; i++)
         {
-            new_list.Add(i);
-            if (i < size -1)
-                Console.Write($"{new_list[i]} ");
+            list.Add(i);
+
+            if (i == 0)
+            {
+                Console.Write(i);
+            }
             else
-                Console.Write(new_list[i]);
+            {
+                Console.Write($" {i}");
+            }
         }
-        Console.Write('\n');
-        return(new_list);
+        Console.WriteLine("");
+
+        return list;
     }
 }

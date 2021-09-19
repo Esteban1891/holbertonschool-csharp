@@ -1,40 +1,36 @@
 using NUnit.Framework;
-using Text;
 
-namespace Text.Tests
+namespace Tests
 {
     public class Tests
     {
+        [SetUp]
+        public void Setup()
+        {
+        }
 
-        [Test]
-        public void Test_Palindrome_01()
+        [TestCase("abcba")]
+        [TestCase("BananasananaB")]
+        [TestCase("fubaRabuf")]
+        [TestCase("")]
+        [TestCase("Beneb")]
+        [TestCase("Ben!neB")]
+        [TestCase("f o o oof")]
+        [TestCase("A man, a plan, a canal: Panama.")]
+        public void IsPalindrome_NormalString_ReturnsTrue(string input)
         {
-            Assert.AreEqual(true, Str.IsPalindrome(""));
+            bool result = Text.Str.IsPalindrome(input);
+
+            Assert.IsTrue(result);
         }
-        [Test]
-        public void Test_Palindrome_02()
+
+        [TestCase("Ben Keener")]
+        [TestCase("AbCd")]
+        public void IsPalindrome_NormalString_ReturnsFalse(string input)
         {
-            Assert.AreEqual(true, Str.IsPalindrome("Reconocer"));
-        }
-        [Test]
-        public void Test_Palindrome_03()
-        {
-            Assert.AreEqual(false, Str.IsPalindrome("hello"));
-        }
-        [Test]
-        public void Test_Palindrome_04()
-        {
-            Assert.AreEqual(true, Str.IsPalindrome("A man, a plan, a canal: Panama."));
-        }
-        [Test]
-        public void Test_Palindrome_05()
-        {
-            Assert.AreEqual(true, Str.IsPalindrome("Desserts, I stressed"));
-        }
-        [Test]
-        public void Test_Palindrome_06()
-        {
-            Assert.AreEqual(true, Str.IsPalindrome("Red rum, sir, is murder"));
+            bool result = Text.Str.IsPalindrome(input);
+
+            Assert.IsFalse(result);
         }
     }
 }

@@ -1,18 +1,17 @@
 ﻿using System;
 
 /// <summary>
-/// This is our class Zombie.
+/// Class to conatin object methods
 /// </summary>
 class Obj
 {
     /// <summary>
-    /// This is our class Zombie.
+    /// Gets if an object is an instance of Array
     /// </summary>
+    /// <param name="obj">The object to check.</param>
+    /// <returns>True if instance, otherwise false</returns>
     public static bool IsInstanceOfArray(object obj)
     {
-        if (obj is Array)
-            return(true);
-        else
-            return(false);
+        return (obj is Array);
     }
 }

@@ -1,29 +1,30 @@
 ﻿using System;
+using System.Linq;
 
-namespace _100_jagged_array
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            int i, j;
-            int[][] jagged = new int[3][]
-            {
-                new int[] {0, 1, 2, 3},
-                new int[] {0, 1, 2, 3, 4, 5, 6},
-                new int[] {0, 1}
-            };
+        int[][] jaggedArray = new int[3][];
 
-            for (i = 0 ; i < 3 ; i++)
+        jaggedArray[0] = Enumerable.Range(0, 4).ToArray();
+        jaggedArray[1] = Enumerable.Range(0, 7).ToArray();
+        jaggedArray[2] = Enumerable.Range(0, 2).ToArray();
+
+        for (int i = 0; i < jaggedArray.Length; i++)
+        {
+            for (int j = 0; j < jaggedArray[i].Length; j++)
             {
-                for (j = 0 ; j < jagged[i].Length ; j++)
+                if (j == 0)
                 {
-                    Console.Write(jagged[i][j]);
-                    if (j < jagged[i].Length - 1)
-                        Console.Write(" ");
+                    Console.Write(jaggedArray[i][j]);
                 }
-                Console.Write('\n');
+                else
+                {
+                    Console.Write($" {jaggedArray[i][j]}");
+                }
             }
+            Console.WriteLine("");
         }
     }
 }

@@ -1,71 +1,58 @@
 ﻿using System;
 
 /// <summary>
-/// This is Queue.
+/// A base class for all of the game objects
 /// </summary>
-public abstract class Base
+abstract class Base
 {
-    /// <summary>This is Queue empty class.</summary>
-    public string name;
+    public string name { get; set; }
 
-    /// <summary>This is Queue empty class.</summary>
     public override string ToString()
     {
-        return($"{name} is a {this.GetType()}");
+        return $"{name} is a {this.GetType().Name}";
     }
 }
 
 /// <summary>
-/// This is Queue.
+/// Defines the properties of an interactive object
 /// </summary>
-public interface IInteractive
+interface IInteractive
 {
-    /// <summary>This is Interact.</summary>
     void Interact();
 }
 
-/// <summary>This is Interact.</summary>
-public interface IBreakable
+/// <summary>
+/// Defines the properties of a breakable object
+/// </summary>
+interface IBreakable
 {
-    /// <summary>This is Interact.</summary>
-    int durability{ get; set; }
-    /// <summary>This is Interact.</summary>
-    void Break();
+    int durability { get; set; }
 }
 
-/// <summary>This is Interact.</summary>
-public interface ICollectable
+/// <summary>
+/// Defines the properties of a collectable object
+/// </summary>
+interface ICollectable
 {
-    /// <summary>This is Interact.</summary>
-    bool isCollected{ get; set; }
-    /// <summary>This is Interact.</summary>
+    bool isCollected { get; set; }
     void Collect();
 }
 
 /// <summary>
-/// This is Queue.
+/// A test object for inheriting interfaces
 /// </summary>
-public class TestObject : Base, IInteractive, IBreakable, ICollectable
+class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
-    /// <summary>This is durability implemented int.</summary>
-    public int durability{ get => throw new NotImplementedException() ; set => throw new NotImplementedException(); }
-    /// <summary>This is isCollected implemented bool.</summary>
-    public bool isCollected{ get => throw new NotImplementedException() ; set => throw new NotImplementedException(); }
-    /// <summary>This is Interact.</summary>
+    public int durability { get; set; }
+    public bool isCollected { get; set; }
+    
     public void Interact()
     {
-        throw new NotImplementedException();
+
     }
 
-    /// <summary>This is break.</summary>
-    public void Break()
-    {
-        throw new NotImplementedException();
-    }
-
-    /// <summary>This is Collect.</summary>
     public void Collect()
     {
-        throw new NotImplementedException();
+
     }
 }

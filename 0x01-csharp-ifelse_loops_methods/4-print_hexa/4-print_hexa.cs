@@ -1,17 +1,10 @@
 ﻿using System;
 
-namespace _4_print_hexa
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            int num = 0;
-            while (num <= 98)
-            {
-                Console.WriteLine($"{num} = 0x{num:x}");
-                num++;
-            }
-        }
+        for (int i = 0; i <= 98; i++)
+            Console.WriteLine("{0} = 0x{0:x}", i);
     }
 }

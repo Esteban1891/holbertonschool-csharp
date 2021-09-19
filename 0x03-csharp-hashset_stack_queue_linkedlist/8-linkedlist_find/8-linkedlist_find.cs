@@ -5,14 +5,18 @@ class LList
 {
     public static int FindNode(LinkedList<int> myLList, int value)
     {
-        int index = 0;
+        int onIndex = 0;
 
-        foreach (int i in myLList)
+        foreach (int val in myLList)
         {
-            if (i == value)
-                return(index);
-            index++;
+            if (val == value)
+            {
+                return onIndex;
+            }
+
+            onIndex++;
         }
-        return(-1);
+
+        return -1;
     }
 }

@@ -3,35 +3,68 @@
 namespace Enemies
 {
     /// <summary>
-    /// This is our class Zombie.
+    /// A simple Zombie class
     /// </summary>
-    class Zombie
+    public class Zombie
     {
+        /// <summary>
+        /// The health of the Zombie
+        /// </summary>
         private int health;
+
+        /// <summary>
+        /// The name of the Zombie
+        /// </summary>
+        private string name = "(No name)";
+
+        /// <summary>
+        /// Constructor for the Zombie
+        /// </summary>
         public Zombie()
         {
-            health = 0;
+            this.health = 0;
         }
+
+        /// <summary>
+        /// Constructor for the Zombie
+        /// </summary>
+        /// <param name="value">Health</param>
         public Zombie(int value)
         {
-            if (value >= 0)
-                this.health = value;
-            else if (value < 0)
+            if (value < 0)
+            {
                 throw new ArgumentException("Health must be greater than or equal to 0");
+            }
+
+            this.health = value;
         }
-        private string name = "(No name)";
-        public string Name
-        {
-            get { return this.name; }
-            set { this.name = value; }
-        }
+
+        /// <summary>
+        /// Gets the Zombie's health
+        /// </summary>
+        /// <returns>The health of the Zombie</returns>
         public int GetHealth()
         {
-            return(this.health);
+            return this.health;
         }
-        public override string ToString()
+
+        /// <summary>
+        /// The name of the Zombie
+        /// </summary>
+        /// <value>The Zombie's name</value>
+        public string Name
         {
-            return($"Zombie Name: {this.name} / Total Health: {this.health}");
+            get { return name; }
+            set { this.name = value; }
+        }
+
+        /// <summary>
+        /// Override of the ToString method for Zombie
+        /// </summary>
+        /// <returns>A pretty description of a Zombie</returns>
+        public override string ToString() 
+        {
+            return $"Zombie Name: {this.Name} / Total Health: {this.health}";
         }
     }
 }

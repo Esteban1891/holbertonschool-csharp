@@ -1,9 +1,9 @@
 ﻿using System;
 
-class Number
+class Program
 {
     public static int Add(int a, int b)
     {
-        return(a + b);
+        return a + b;
     }
 }

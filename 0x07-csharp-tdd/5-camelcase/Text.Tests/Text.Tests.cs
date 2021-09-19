@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Text.Tests
+namespace Tests
 {
     public class Tests
     {
@@ -9,10 +9,19 @@ namespace Text.Tests
         {
         }
 
-        [Test]
-        public void Test1()
+        [TestCase(1, "foo")]
+        [TestCase(2, "fooBar")]
+        [TestCase(3, "fooBarBaz")]
+        [TestCase(0, "")]
+        [TestCase(0, ".!123")]
+        [TestCase(1, ".!123bar")]
+        [TestCase(2, ".!123barBaz")]
+        [TestCase(0, null)]
+        public void CamelCase_NormalString_ReturnsNumberOfWords(int expected, string s)
         {
-            Assert.Pass();
+            int result = Text.Str.CamelCase(s);
+
+            Assert.AreEqual(expected, result);
         }
     }
 }

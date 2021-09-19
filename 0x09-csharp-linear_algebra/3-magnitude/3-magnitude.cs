@@ -1,21 +1,23 @@
 ﻿using System;
+using System.Linq;
 
-/// <summary>This is the class object.</summary>
+/// <summary>
+/// Contains methods for Vector Math
+/// </summary>
 class VectorMath
 {
-    /// <summary>This is the class object.</summary>
+    /// <summary>
+    /// Gets the magnitude of a Vector2 or Vector3
+    /// </summary>
+    /// <param name="vector">A Vector 2 or 3 represented as an array of doubles</param>
+    /// <returns>The magnitude of the vector</returns>
     public static double Magnitude(double[] vector)
     {
-        if (vector.Length < 2 || vector.Length > 3)
-            return(-1);
+        if (vector.Length != 2 && vector.Length != 3)
+            return -1;
 
-        double magnitude = 0;
+        double squaredSum = (from num in vector select num * num).Sum();
 
-        foreach (double element in vector)
-        {
-            magnitude += (element * element);
-        }
-        magnitude = Math.Round(Math.Sqrt(magnitude), 2);
-        return magnitude;
+        return Math.Round(Math.Sqrt(squaredSum), 2);
     }
 }

@@ -5,18 +5,22 @@ class List
 {
     public static int MaxInteger(List<int> myList)
     {
-        int max_value;
-        if (myList.Count == 0)
+        if (myList == null || myList.Count == 0)
         {
             Console.WriteLine("List is empty");
-            return(-1);
+            return -1;
         }
-        max_value = myList[0];
-        foreach (var number in myList)
+
+        int max = int.MinValue;
+
+        foreach (int val in myList)
         {
-            if (number > max_value)
-                max_value = number;
+            if (val > max)
+            {
+                max = val;
+            }
         }
-        return(max_value);
+
+        return max;
     }
 }

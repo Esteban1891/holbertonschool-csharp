@@ -7,10 +7,11 @@ class LList
     {
         int sum = 0;
 
-        foreach (int i in myLList)
+        foreach (int val in myLList)
         {
-            sum += i;
+            sum += val;
         }
-        return(sum);
+
+        return sum;
     }
 }

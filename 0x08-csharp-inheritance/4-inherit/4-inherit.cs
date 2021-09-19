@@ -1,15 +1,17 @@
 ﻿using System;
 
 /// <summary>
-/// This is our class Zombie.
+/// Empty base Animal class
 /// </summary>
 class Animal
 {
+
 }
 
 /// <summary>
-/// This is our class Zombie.
+/// Empty dog class, inheriting Animal
 /// </summary>
 class Dog : Animal
 {
+    
 }

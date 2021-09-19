@@ -1,146 +1,172 @@
 ﻿using System;
 
 /// <summary>
-/// This is Queue.
+/// A Queue class
 /// </summary>
-public class Queue<T>
+/// <typeparam name="T">The type of the value of the Nodes the Queue contains</typeparam>
+class Queue<T>
 {
     /// <summary>
-    /// This is Queue empty class.
+    /// The first node (head) in the Queue
     /// </summary>
+    /// <value>gets/sets the head Node</value>
+    public Node head { get; set; }
+
+    /// <summary>
+    /// The last node (tail) in the Queue
+    /// </summary>
+    /// <value>gets/sets the tail Node</value>
+    public Node tail { get; set; }
+
+    /// <summary>
+    /// The number of nodes in the Queue
+    /// </summary>
+    /// <value>gets/sets the count int</value>
+    public int count { get; set; }
+
+    /// <summary>
+    /// Get the type that the Queue contains
+    /// </summary>
+    /// <returns>The type of the Queue</returns>
     public Type CheckType()
     {
-        return(typeof(T));
+        return typeof(T);
     }
 
     /// <summary>
-    /// This is Queue empty class.
+    /// Adds a value to the end of the Queue
     /// </summary>
-    public class Node
-    {
-        /// <summary>This is Queue empty class.</summary>
-        public T value = default(T);
-        /// <summary>This is Queue empty class.</summary>
-        public Node next = null;
-
-        /// <summary>This is Queue empty class.</summary>
-        public Node(T var)
-        {
-            value = var;
-        }
-    }
-
-    /// <summary>This is Queue empty class.</summary>
-    public Node head = null;
-    /// <summary>This is Queue empty class.</summary>
-    public Node tail = null;
-    /// <summary>This is Queue empty class.</summary>
-    public int count;
-
-    /// <summary>This is Queue empty class.</summary>
+    /// <param name="value">The value to append, of type T</param>
     public void Enqueue(T value)
     {
-        Node newNode = new Node(value);
+        count++;
+
         if (head == null)
         {
-            head = newNode;
-            tail = newNode;
+            head = new Node(value);
+            tail = head;
+            return;
         }
-        else
-        {
-            tail.next = newNode;
-            tail = newNode;
-        }
-        count++;
+
+        tail.next = new Node(value);
+        tail = tail.next;
+        return;
     }
-    /// <summary>This is Queue empty class.</summary>
+
+    /// <summary>
+    /// Dequeues the first element in the queue
+    /// </summary>
+    /// <returns>The value of the element removed from the queue, or the default value of the type of the queue if the queue is empty</returns>
     public T Dequeue()
     {
-        if (head == null)
-        {
-            Console.WriteLine("Queue is empty");
-            return(default(T));
-        }
-
-        Node tmp = head;
-        head = head.next;
-        count--;
-        return(tmp.value);
-    }
-
-    /// <summary>This is Queue empty class.</summary>
-    public T Peek()
-    {
-        if (head == null)
-        {
-            Console.WriteLine("Queue is empty");
-            return(default(T));
-        }
-
-        return(head.value);
-    }
-    /// <summary>This is Queue empty class.</summary>
-    public void Print()
-    {
-        if (head == null)
-            Console.WriteLine("Queue is empty");
-        else
-        {
-            Node tmp = head;
-            while (tmp != null)
-            {
-                Console.WriteLine(tmp.value);
-                tmp = tmp.next;
-            }
-        }
-    }
-
-    /// <summary>This is Queue empty class.</summary>
-    public T Concatenate()
-    {
-        if (head == null)
+        if (count == 0)
         {
             Console.WriteLine("Queue is empty");
             return default(T);
         }
 
-        if (CheckType() == typeof(String))
-        {
-            Node tmp = head;
-            string str = "";
-            while (tmp != null)
-            {
-                str += tmp.value;
-                if (tmp.next != null)
-                    str += " ";
-                tmp = tmp.next;
-            }
-            Console.Write(str);
-        }
+        count--;
 
-        else if (CheckType() == typeof(Char))
-        {
-            Node tmp = head;
-            string chara = "";
-            while (tmp != null)
-            {
-                chara += tmp.value;
-                tmp = tmp.next;
-            }
-            Console.Write(chara);
-        }
+        T ret = head.value;
+        head = head.next;
 
-        else
-        {
-            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only");
-        }
-
-        return(default(T));
+        return (ret);
     }
 
-    /// <summary>This is Queue empty class.</summary>
+    /// <summary>
+    /// Gets the first value in the Queue without removing it
+    /// </summary>
+    /// <returns>The value at the head of the Queue</returns>
+    public T Peek()
+    {
+        if (count == 0)
+        {
+            Console.WriteLine("Queue is empty");
+            return default(T);
+        }
+
+        return (head.value);
+    }
+
+    /// <summary>
+    /// Prints all of the values in the Queue, from head to tail
+    /// </summary>
+    public void Print()
+    {
+        if (count == 0)
+        {
+            Console.WriteLine("Queue is empty");
+            return;
+        }
+
+        Node on = head;
+
+        while (on != null)
+        {
+            Console.WriteLine(on.value);
+            on = on.next;
+        }
+    }
+
+    public string Concatenate()
+    {
+        if (count == 0)
+        {
+            Console.WriteLine("Queue is empty");
+            return null;
+        }
+
+        if (typeof(T) != typeof(String) && typeof(T) != typeof(Char))
+        {
+            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
+            return null;
+        }
+
+        string ret = "";
+        Node on = head;
+
+        while (on != null)
+        {
+            if (typeof(T) == typeof(string) && ret != "")
+                ret += " ";
+            ret += on.value;
+                
+            on = on.next;
+        }
+
+        return (ret);
+    }
+
+    /// <summary>
+    /// Gets the number of items in the Queue
+    /// </summary>
+    /// <returns>The number of items in the Queue, as an int</returns>
     public int Count()
     {
-        return(count);
+        return this.count;
+    }
+
+    /// <summary>
+    /// A node to store data for the Queue
+    /// </summary>
+    public class Node
+    {
+        /// <summary>
+        /// The value that the node contains
+        /// </summary>
+        /// <value>The value property gets/sets the value property of type T</value>
+        public T value { get; set; }
+
+        /// <summary>
+        /// The next node in the linked list
+        /// </summary>
+        /// <value>The next property gets/sets the next property of type Node</value>
+        public Node next { get; set; }
+
+        public Node(T value)
+        {
+            this.value = value;
+            this.next = null;
+        }
     }
 }

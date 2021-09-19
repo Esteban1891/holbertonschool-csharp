@@ -6,6 +6,7 @@ public enum Rating
     Great,
     Excellent
 }
+
 public struct Dog
 {
     public string name;

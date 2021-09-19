@@ -4,6 +4,6 @@ class Except
 {
     public static void ThrowMsg(string msg)
     {
-        throw new ArgumentException(msg);
+        throw new Exception(msg);
     }
 }

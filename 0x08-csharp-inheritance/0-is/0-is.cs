@@ -1,18 +1,17 @@
 ﻿using System;
 
 /// <summary>
-/// This is our class Zombie.
+/// Class to contain methods for objects
 /// </summary>
 class Obj
 {
     /// <summary>
-    /// This is our class Zombie.
+    /// Checks if an object is an int
     /// </summary>
+    /// <param name="obj">The object to check</param>
+    /// <returns>True if the object is an int, otherwise false.</returns>
     public static bool IsOfTypeInt(object obj)
     {
-        if (obj.GetType() == typeof(int))
-            return(true);
-        else
-            return(false);
+        return (obj.GetType() == typeof(int));
     }
 }

@@ -1,37 +1,28 @@
 ﻿using System;
 
-/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-    /// <summary>This is the class object.</summary>
     public static double[,] Multiply(double[,] matrix1, double[,] matrix2)
     {
-        if (
-            (!(matrix1 is double[,]) || !(matrix2 is double[,])) ||
-            (matrix2.GetLength(0) != matrix1.GetLength(1))
-        )
-        {
-            return new double[,]{{-1}};
-        }
+        if (matrix1.Rank != 2 || matrix2.Rank != 2 ||
+            matrix1.GetLength(1) != matrix2.GetLength(0))
+            return new double[1,1] { {-1} };
+        
+        double[,] ret = new double[matrix1.GetLength(0), matrix2.GetLength(1)];
 
-        int i, j, k;
-        int matrix1_len_1 = matrix1.GetLength(0);
-        int matrix1_len_2 = matrix1.GetLength(1);
-        int matrix2_len_1 = matrix2.GetLength(0);
-        int matrix2_len_2 = matrix2.GetLength(1);
-        double[,] mul_matrix = new double[matrix1_len_1, matrix2_len_2];
-
-        for (i = 0 ; i < matrix1_len_2 ; i++)
+        for (uint i = 0; i < ret.GetLength(0); i++)
         {
-            for (j = 0 ; j < matrix1_len_1 ; j++)
+            for (uint j = 0; j < ret.GetLength(1); j++)
             {
-                for (k = 0 ; k < matrix2_len_2 ; k++)
-                {
-                    mul_matrix[j, k] += matrix1[j, i] * matrix2[i, k];
-                }
+                double sum = 0;
+
+                for (uint k = 0; k < matrix2.GetLength(0); k++)
+                    sum += matrix1[i, k] * matrix2[k, j];
+                
+                ret[i, j] = sum;
             }
         }
 
-        return(mul_matrix);
+        return ret;
     }
 }

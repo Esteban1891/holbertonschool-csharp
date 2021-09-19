@@ -1,38 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MyMath
 {
     /// <summary>
-    /// This is our class Matrix.
+    /// Class for matrix math functions
     /// </summary>
     public class Matrix
     {
         /// <summary>
-        /// This is our public static int[,] Divide.
+        /// Divides each element in a matrix by a number.
         /// </summary>
+        /// <param name="matrix">A matrix of integers.</param>
+        /// <param name="num">The number to divide each element by.</param>
+        /// <returns>A new matrix with the resulting quotients.</returns>
         public static int[,] Divide(int[,] matrix, int num)
         {
-            int i;
-            int j;
-
-            if (matrix is null)
-                return null;
             if (num == 0)
-                {
-                    Console.WriteLine("Num cannot be 0");
-                    return null;
-                }
-
-            int[,] res = matrix;
-            for (i = 0; i < matrix.GetLength(0) ; i++)
             {
-                for (j = 0; j < matrix.GetLength(1) ; j++)
+                Console.WriteLine("Num cannot be 0");
+                return null;
+            }
+
+            if (matrix == null)
+            {
+                return null;
+            }
+
+            int[,] newMat = (int[,])matrix.Clone();
+
+            for (int i = 0; i < newMat.GetLength(0); i++)
+            {
+                for (int j = 0; j < newMat.GetLength(1); j++)
                 {
-                    res[i, j] /= num;
+                    newMat[i, j] /= num;
                 }
             }
-            return res;
+
+            return newMat;
         }
     }
 }

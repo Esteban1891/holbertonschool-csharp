@@ -1,30 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyMath
 {
     /// <summary>
-    /// This is our class Matrix.
+    /// Class for basic math operations
     /// </summary>
     public class Operations
     {
         /// <summary>
-        /// This is our class Matrix.
+        /// Gets the maximum number in a list
         /// </summary>
+        /// <param name="nums">A list of integers</param>
+        /// <returns>The largest number in the list</returns>
         public static int Max(List<int> nums)
         {
-            int i;
-
             if (nums == null || nums.Count == 0)
-                return(0);
+                return 0;
 
-            int max = nums[0];
-            int nums_lenght = nums.Count;
-
-            for(i = 0 ; i < nums_lenght ; i++)
-                if (max < nums[i])
-                    max = nums[i];
-            return(max);
+            return nums.Max();
         }
     }
 }

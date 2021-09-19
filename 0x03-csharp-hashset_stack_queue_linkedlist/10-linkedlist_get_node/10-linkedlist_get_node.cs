@@ -5,16 +5,17 @@ class LList
 {
     public static int GetNode(LinkedList<int> myLList, int n)
     {
-        if (myLList.Count < n)
-            return (0);
-
         int index = 0;
-        foreach (int element in myLList)
+
+        foreach (int val in myLList)
         {
             if (index == n)
-                return (element);
+            {
+                return val;
+            }
             index++;
         }
-        return (0);
+
+        return 0;
     }
 }

@@ -1,27 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Text
 {
     /// <summary>
-    /// This is our class Matrix.
+    /// Class for string functions
     /// </summary>
     public class Str
     {
         /// <summary>
-        /// This is our class Matrix.
+        /// Checks if a string is a palindrome.
         /// </summary>
+        /// <param name="s">The string to check.</param>
+        /// <returns>True if palindrome, otherwise false.</returns>
         public static bool IsPalindrome(string s)
         {
-            string new_string = String.Join("", s.ToLower().Split(' ', ',', '.', ':', ';', '\''));
-            int strLen = new_string.Length - 1;
+            string normalized = "";
 
-            foreach (char letter in new_string)
+            for (int q = 0; q < s.Length; q++)
             {
-                if ( letter != new_string[strLen])
-                    return false;
-                strLen--;
+                char c = s[q];
+
+                if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                {
+                    normalized += Char.ToLower(c);
+                }
             }
+
+            int i = 0;
+            int j = normalized.Length - 1;
+
+            while (i < j)
+            {
+                if (normalized[i] != normalized[j])
+                    return false;
+
+                i++;
+                j--;
+            }
+
             return true;
         }
     }
