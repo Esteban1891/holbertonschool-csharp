@@ -1,42 +1,36 @@
 using NUnit.Framework;
 
-namespace Tests
+namespace Text.Tests
 {
+    [TestFixture]
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void TwoWords([Values("oneTwo", "twoWords")] string s)
         {
+            int result = Str.CamelCase(s);
+            Assert.AreEqual(result, 2);
         }
 
         [Test]
-        public void CamelCase_Empty()
+        public void OneWord([Values("one", "word", "u")] string s)
         {
-            string test = "";
-            int result = Text.Str.CamelCase(test);
-            Assert.That(result, Is.EqualTo(0));
+            int result = Str.CamelCase(s);
+            Assert.AreEqual(result, 1);
         }
+
         [Test]
-        public void CamelCase_Single()
+        public void ShortWords([Values("cDEFGAB", "lAArDiLlAH")] string s)
         {
-            string test = "wao";
-            int result = Text.Str.CamelCase(test);
-            Assert.That(result, Is.EqualTo(1));
+            int result = Str.CamelCase(s);
+            Assert.AreEqual(result, 7);
         }
+
         [Test]
-        public void CamelCase_Words()
+        public void NoWords([Values("", " ", "\"")] string s)
         {
-            //string test = "iThoughtWhatIdDoWasIdPretendIWasOneOfThoseDeafMutes";
-            string test = "wowWow";
-            int result = Text.Str.CamelCase(test);
-            Assert.That(result, Is.EqualTo(2));
-        }
-        [Test]
-        public void CamelCase_Null()
-        {
-            string test = null;
-            int result = Text.Str.CamelCase(test);
-            Assert.That(result, Is.EqualTo(0));
+            int result = Str.CamelCase(s);
+            Assert.AreEqual(result, 0);
         }
     }
 }

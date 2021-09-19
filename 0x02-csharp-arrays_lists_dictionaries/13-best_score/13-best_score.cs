@@ -1,21 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class Dictionary
 {
-    public static string BestScore(Dictionary<string, int> myList)
-    {
-        List<int> sList = new List<int>();
-        Dictionary<int, string> iDict = new Dictionary<int, string>();
-        foreach (KeyValuePair<string, int> kvp in myList)
-        {
-            iDict[kvp.Value] = kvp.Key;
-            sList.Add(kvp.Value);
-        }
-        if (sList.Count == 0)
-            return ("None");
-        sList.Sort();
-        return (iDict[sList[sList.Count - 1]]);
+	public static string BestScore(Dictionary<string, int> myList)
+	{
+		string key = null;
+		int best = 0;
 
-    }
+		if (myList == null || myList.Count == 0)
+			return "None";
+
+		foreach (KeyValuePair<string, int> pair in myList)
+		{
+			if (pair.Value >= best)
+			{
+				key = pair.Key;
+				best = pair.Value;
+			}
+		}
+		return key;
+	}
 }

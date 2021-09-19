@@ -1,23 +1,22 @@
-﻿using System;
-
-///<summary>Algebraic operations on matricies.</summary>
+///<summary>Initialize class.</summary>
 class MatrixMath
 {
-    ///<summary>Transpose a matrix.</summary>
-    public static double[,] Transpose(double[,] matrix)
-    {
-        double[,] bad = new double[,] {{-1}};
-        int fromWidth = matrix.GetLength(1);
-        int fromHeight = matrix.GetLength(0);
-        double[,] matrix3 = new double[fromWidth, fromHeight];
+	/// <summary>Transposes a matrix.</summary>
+	/// <param name="matirx">The matrix.</param>
+	/// <returns>The transposed matrix.</returns>
+	public static double[,] Transpose(double[,] matrix)
+	{
+		if (matrix.Length == 0)
+			return new double[,] {};
 
-        for (int i = 0; i < fromWidth; i++)
-        {
-            for (int j = 0; j < fromHeight; j++)
-            {
-                matrix3[i, j] = matrix[j, i];
-            }
-        }
-        return (matrix3);
-    }
+		double[,] trans = new double[matrix.GetLength(1), matrix.GetLength(0)];
+
+		for (int i = 0; i < matrix.GetLength(0); i++)
+		{
+			for (int j = 0; j < matrix.GetLength(1); j++)
+				trans[j, i] = matrix[i, j];
+		}
+
+		return trans;
+	}
 }

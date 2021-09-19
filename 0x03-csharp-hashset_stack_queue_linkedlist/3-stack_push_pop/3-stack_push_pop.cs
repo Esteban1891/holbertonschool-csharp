@@ -1,24 +1,40 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class MyStack
 {
     public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
     {
-        int count = aStack.Count;
-        bool inn = aStack.Contains(search);
-        Console.WriteLine("Number of items: {0}", count);
-        if (count == 0)
-            Console.WriteLine("Stack is empty");
+        int count = 0;
+        string aux = null;
+        bool check = false;
+        foreach (var item in aStack)
+            count++;
+        Console.WriteLine($"Number of items: {count}");
+
+        if (aStack.Count > 0)
+            Console.WriteLine($"Top item: {aStack.Peek()}");
         else
-            Console.WriteLine("Top item: {0}", aStack.Peek());
-        Console.WriteLine("Stack contains \"{0}\": {1}", search, inn);
-        if (inn == true)
+            Console.WriteLine("Stack is empty");
+        
+        if (aStack.Contains(search))
         {
-            while (aStack.Pop() != search)
-                continue;
+            Console.WriteLine($"Stack contains \"{search}\": True");
+            check = true;
         }
+        else
+            Console.WriteLine($"Stack contains \"{search}\": False");
+
+        while (check)
+        {
+            aux = aStack.Peek();
+            if (String.Equals(search, aux))
+                check = false;
+            aStack.Pop();
+        }
+
         aStack.Push(newItem);
-        return (aStack);
+
+        return aStack;
     }
 }

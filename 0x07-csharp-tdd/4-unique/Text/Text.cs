@@ -3,33 +3,32 @@ using System.Collections.Generic;
 
 namespace Text
 {
-    ///<summary>Performs operations on text string inputs.</summary>
     public class Str
     {
-        ///<summary>Determines index of first non-repeating character.</summary>
         public static int UniqueChar(string s)
         {
-            List<char> reject = new List<char>();
-            Dictionary<char, int> hold = new Dictionary<char, int>();
-            int idx = -1;
-            for (int i = 0; i < s.Length; i++)
+            int aux = 0;
+            List<int> check = new List<int>();
+
+            for (int idx = 0; idx < s.Length; idx++)
             {
-                if (reject.Contains(s[i]))
-                    continue;
-                if (hold.ContainsKey(s[i]))
+                aux = idx + 1;
+                if (!check.Contains(s[idx]))
                 {
-                    reject.Add(s[i]);
-                    hold.Remove(s[i]);
-                    continue;
+                    check.Add(s[idx]);
+                    while (aux < s.Length)
+                    {
+                        if (s[aux] == s[idx])
+                            break;
+                        if (aux == s.Length - 1)
+                            return idx;
+                        aux++;
+                    }
+                    if (idx == s.Length - 1)
+                            return idx;
                 }
-                hold.Add(s[i], i);
             }
-            foreach (KeyValuePair<char, int> uniq in hold)
-            {
-                if (uniq.Value < idx || idx == -1)
-                    idx = uniq.Value;
-            }
-            return (idx);
+            return -1;
         }
     }
 }

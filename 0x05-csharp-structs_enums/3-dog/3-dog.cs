@@ -1,6 +1,9 @@
-﻿using System;
-
-enum Rating { Good, Great, Excellent };
+﻿enum Rating
+{
+    Good,
+    Great,
+    Excellent
+}
 
 struct Dog
 {
@@ -8,18 +11,14 @@ struct Dog
     public float age;
     public string owner;
     public Rating rating;
-    public Dog(string n, float a, string o, Rating r)
+
+    public Dog (string dname, float dage, string downer, Rating drating)
     {
-        name = n;
-        age = a;
-        owner = o;
-        rating = r;
+        name = dname;
+        age = dage;
+        owner = downer;
+        rating = drating;
     }
-    public override string ToString()
-    {
-        return "Dog Name: " + name +
-                "\nAge: " + age +
-                "\nOwner: " + owner +
-                "\nRating: " + rating;
-    }
+
+    public override string ToString() => $"Dog Name: {name}\nAge: {age}\nOwner: {owner}\nRating: {rating}";
 }

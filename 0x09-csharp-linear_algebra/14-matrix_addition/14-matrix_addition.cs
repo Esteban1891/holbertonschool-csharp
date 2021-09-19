@@ -1,32 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-
-///<summary>Algebraic operations on matricies.</summary>
+///<summary>Initialize class.</summary>
 class MatrixMath
 {
-    ///<summary>Sum of two matricies.</summary>
-    public static double[,] Add(double[,] matrix1, double[,] matrix2)
-    {
-        double[,] bad = new double[,] {{-1}};
-        int height = matrix1.GetLength(0);
-        int width = matrix1.GetLength(1);
-        double[,] matrix3;
+	///<summary>Adds two matrices.</summary>
+	///<param name="matrix1">First matrix.</param>
+	///<param name="matrix2">Second matrix.</param>
+	///<returns>A new matrix.</returns>
+	public static double[,] Add(double[,] matrix1, double[,] matrix2)
+	{
+		if (matrix1.Length != matrix2.Length || matrix1.GetLength(0) < 2 || matrix1.GetLength(0) > 3 ||
+			matrix2.GetLength(0) < 2 || matrix2.GetLength(0) > 3)
+			return new double[,] { { -1 } };
+		double[,] result = new double[matrix1.GetLength(0), matrix2.GetLength(1)];
 
-        if (height == 2 && width == 2 &&
-            height == matrix2.GetLength(0) && width == matrix2.GetLength(1))
-                matrix3 = new double[2, 2];
-        else if (height == 3 && width == 3 &&
-                height == matrix2.GetLength(0) && width == matrix2.GetLength(1))
-                matrix3 = new double[3, 3];
-        else
-            return (bad);
-        for (int i = 0; i < height; i++)
-        {
-            for (int j = 0; j < width; j++)
-            {
-                matrix3[i, j] = matrix1[i, j] + matrix2[i, j];
-            }
-        }
-        return (matrix3);
-    }
+		for (int i = 0; i < matrix1.GetLength(0); i++)
+		{
+			for (int j = 0; j < matrix1.GetLength(1); j++)
+				result[i, j] = matrix1[i, j] + matrix2[i, j];
+		}
+
+		return result;
+	}
 }

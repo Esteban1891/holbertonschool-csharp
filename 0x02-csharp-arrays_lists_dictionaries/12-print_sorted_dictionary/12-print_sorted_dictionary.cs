@@ -1,15 +1,22 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using static System.Linq.Enumerable;
 
 class Dictionary
 {
     public static void PrintSorted(Dictionary<string, string> myDict)
     {
-        List<string> sList = new List<string>();
-        foreach (string key in myDict.Keys)
-            sList.Add(key);
-        sList.Sort();
-        foreach (string key in sList)
-            Console.WriteLine("{0}: {1}", key, myDict[key]);
+        List<string> keysList = new List<string>();
+        Dictionary<string, string> newDict = new Dictionary<string, string>();
+
+        foreach (KeyValuePair<string, string> pair in myDict)
+            keysList.Add(pair.Key);
+
+        keysList.Sort();
+        foreach (var key in keysList)
+            newDict[key] = myDict[key];
+
+        foreach (KeyValuePair<string, string> pair in newDict)
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
     }
 }

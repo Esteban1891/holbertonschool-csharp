@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 
-///<summary>Algebraic operations on vectors.</summary>
+
+///<summary>Intialize class.</summary>
 class VectorMath
 {
-    ///<summary>Adds two vectors.</summary>
-    public static double[] Add(double[] vector1, double[] vector2)
-    {
-        double[] vector3 = new double[1] {-1};
+	///<summary>Adds two vectors.</summary>
+	///<param name="vector1">First vector.</param>
+	///<param name="vector2">Second vector.</param>
+	///<returns>A new vector with the adition.</returns>
+	public static double[] Add(double[] vector1, double[] vector2)
+	{
+		if (vector1.Length != vector2.Length || vector1.Length < 2 ||
+			vector1.Length > 3 || vector2.Length < 2 || vector2.Length > 3)
+			return new double[] { -1 };
 
-        if (vector1.Length == 2 && vector1.Length == vector2.Length)
-        {
-            vector3 = new double[2] {vector1[0] + vector2[0], vector1[1] + vector2[1]};
-        }
-        else if (vector1.Length == 3 && vector1.Length == vector2.Length)
-        {
-            vector3 = new double[3] {vector1[0] + vector2[0], vector1[1] + vector2[1], vector1[2]+vector2[2]};
-        }
-        return (vector3);
-    }
+		double[] result = new double[vector1.Length];
+		for (int i = 0; i < vector1.Length; i++)
+			result[i] = vector1[i] + vector2[i];
+
+		return result;
+	}
 }

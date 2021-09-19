@@ -1,16 +1,20 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class LList
 {
     public static LinkedList<int> CreatePrint(int size)
     {
-        LinkedList<int> newLList = new LinkedList<int>();
+        LinkedList<int> MyLList = new LinkedList<int>();
+        if (size < 0)
+            return MyLList;
+
         for (int i = 0; i < size; i++)
-        {
-            newLList.AddLast(i);
+            MyLList.AddLast(i);
+
+        foreach (var i in MyLList)
             Console.WriteLine(i);
-        }
-        return (newLList);
+
+        return MyLList;
     }
 }

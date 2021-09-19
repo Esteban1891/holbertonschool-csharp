@@ -1,18 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+
 class LList
 {
-    public static int GetNode(LinkedList<int> myLList, int n)
-    {
-        int index = 0;
-        if (n >= myLList.Count)
-            return (0);
-        foreach (int num in myLList)
-        {
-            if (index == n)
-                return (num);
-            index++;
-        }
-        return (0);
-    }
+	public static int GetNode(LinkedList<int> myLList, int n)
+	{
+		int count = 0;
+
+		foreach (var i in myLList)
+		{
+			if (count == n)
+				return i;
+			count++;
+		}
+		return 0;
+	}
 }

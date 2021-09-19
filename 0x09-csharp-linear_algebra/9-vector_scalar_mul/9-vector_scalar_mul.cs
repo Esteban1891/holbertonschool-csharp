@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 
-///<summary>Algebraic operations on vectors.</summary>
+
+///<summary>Initialize class.</summary>
 class VectorMath
 {
-    ///<summary>Scales a vector.</summary>
-    public static double[] Multiply(double[] vector, double scalar)
-    {
-        double[] vector3 = new double[1] {-1};
+	///<summary>Multiplies a vector by a number.</summary>
+	///<param name="vector">The vector to multiply.</param>
+	///<param name="scalar">The multiplier.</param>
+	///<returns>A new vector.</returns>
+	public static double[] Multiply(double[] vector, double scalar)
+	{
+		if (vector.Length < 2 || vector.Length > 3)
+			return new double[] { -1 };
 
-        if (vector.Length == 2)
-        {
-            vector3 = new double[2] {vector[0] * scalar, vector[1] * scalar};
-        }
-        else if (vector.Length == 3)
-        {
-            vector3 = new double[3] {vector[0] * scalar, vector[1] * scalar, vector[2] * scalar};
-        }
-        return (vector3);
-    }
+		double[] result = new double[vector.Length];
+		for (int i = 0; i < vector.Length; i++)
+			result[i] = vector[i] * scalar;
+
+		return result;
+	}
 }

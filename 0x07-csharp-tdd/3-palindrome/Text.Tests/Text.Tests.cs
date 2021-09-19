@@ -1,31 +1,57 @@
 using NUnit.Framework;
 
-namespace Tests
+namespace Text.Tests
 {
+    [TestFixture]
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void RegularString([Values("level", "racecar")] string s)
         {
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, true);
         }
 
         [Test]
-        public void IsPalindrome_Symbols()
+        public void CaseSensitiveString([Values("Level", "racecaR")] string s)
         {
-            string test = "!?. :;";
-            Assert.That(Text.Str.IsPalindrome(test), Is.True);
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, true);
         }
+
         [Test]
-        public void IsPalindrome_Panama()
+        public void StringWithPunctuation([Values("A man, a plan, a canal: Panama.")] string s)
         {
-            string test = "A man, a plan, a canal: Panama.";
-            Assert.That(Text.Str.IsPalindrome(test), Is.True);
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, true);
         }
+
         [Test]
-        public void IsPalindrome_Abaj()
+        public void EmptyString([Values("")] string s)
         {
-            string test = "ABAJABAJ";
-            Assert.That(Text.Str.IsPalindrome(test), Is.False);
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, true);
+        }
+
+        [Test]
+        public void NotPalindrome([Values("This", "is", "not", "palindrome")] string s)
+        {
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, false);
+        }
+
+        [Test]
+        public void StringWithQuotes([Values("\"\"")] string s)
+        {
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, true);
+        }
+
+        [Test]
+        public void OneLengthString([Values(" ", "t")] string s)
+        {
+            bool result = Str.IsPalindrome(s);
+            Assert.AreEqual(result, true);
         }
     }
 }

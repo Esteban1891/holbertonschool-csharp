@@ -2,32 +2,31 @@
 
 namespace MyMath
 {
-    ///<summary>Performs operations on 2 dimensional matrixies.</summary>
     public class Matrix
     {
-        ///<summary>Divides elements in a matrix by a number.</summary>
         public static int[,] Divide(int[,] matrix, int num)
         {
-            if (matrix == null)
+            try
             {
-                return (null);
+                int[,] newMatrix = (int[,])matrix.Clone();
+                for (int i = 0; i < newMatrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < newMatrix.GetLength(1); j++)
+                    {
+                        newMatrix[i, j] /= num; 
+                    }
+                }
+                return newMatrix;
             }
-            if (num == 0)
+            catch (DivideByZeroException)
             {
                 Console.WriteLine("Num cannot be 0");
-                return (null);
+                return null;
             }
-            int mHeight = matrix.GetLength(0);
-            int mWidth = matrix.GetLength(1);
-            int[,] newMatrix = new int[mHeight, mWidth];
-            for (int i = 0; i < mHeight; i++)
+            catch (NullReferenceException)
             {
-                for (int j = 0; j < mWidth; j++)
-                {
-                    newMatrix[i, j] = matrix[i,j] / num;
-                }
+                return null;
             }
-            return (newMatrix);
         }
     }
 }

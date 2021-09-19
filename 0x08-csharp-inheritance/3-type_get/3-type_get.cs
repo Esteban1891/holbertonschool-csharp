@@ -1,24 +1,19 @@
-﻿using System;
-using System.Reflection;
+using System;
 
-
-///<summary>Checks types.</summary>
+/// <summary>Represents an object.</summary>
 class Obj
 {
-    ///<summary>Prints properties/methods of an object.</summary>
-    public static void Print(object myObj)
-    {
-        TypeInfo t = myObj.GetType().GetTypeInfo();
-        Console.WriteLine("{0} Properties:", t.Name);
-        foreach (PropertyInfo prop in t.GetProperties())
-        {
-            Console.WriteLine(prop.Name);
-        }
-        Console.WriteLine("{0} Methods:", t.Name);
-        foreach (MethodInfo meth in t.GetMethods())
-        {
-            Console.WriteLine(meth.Name);
-        }
+	/// <summary>Prints the methods and properties of the object.</summary>
+	public static void Print(object myObj)
+	{
+		Type type = myObj.GetType();
 
-    }
+		Console.WriteLine(type.Name + " Properties:");
+		foreach (var property in type.GetProperties())
+			Console.WriteLine(property.Name);
+
+		Console.WriteLine(type.Name + " Methods:");
+		foreach (var method in type.GetMethods())
+			Console.WriteLine(method.Name);
+	}
 }

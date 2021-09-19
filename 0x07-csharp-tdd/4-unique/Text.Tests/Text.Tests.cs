@@ -1,35 +1,50 @@
 using NUnit.Framework;
 
-namespace Tests
+namespace Text.Tests
 {
+    [TestFixture]
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void FirstUniqueChar([Values("hello", "true")] string s)
         {
+            int result = Str.UniqueChar(s);
+            Assert.AreEqual(result, 0);
         }
 
         [Test]
-        public void UniqueChar_Empty()
+        public void NoUniqueChar([Values("tddt", "hhoommee")] string s)
         {
-            string s = "";
-            int result = Text.Str.UniqueChar(s);
-            Assert.That(result, Is.EqualTo(-1));
+            int result = Str.UniqueChar(s);
+            Assert.AreEqual(result, -1);
         }
+
         [Test]
-        public void UniqueChar_Lol()
+        public void LastIsUniqueChar([Values("soosy")] string s)
         {
-            string s = "wwwwwwwwwwwwwwwwwwwwwwwww";
-            int result = Text.Str.UniqueChar(s);
-            Assert.That(result, Is.EqualTo(-1));
+            int result = Str.UniqueChar(s);
+            Assert.AreEqual(result, 4);
         }
+
         [Test]
-        public void UniqueChar_String()
+        public void EmptyString([Values("")] string s)
         {
-            string s = "abcdefghijklmnopqrstuvwxyzabcdfghijkzxywvutsrponlm";
-            int result = Text.Str.UniqueChar(s);
-            Assert.That(result, Is.EqualTo(4));
+            int result = Str.UniqueChar(s);
+            Assert.AreEqual(result, -1);
         }
-        
+
+        [Test]
+        public void OneLengthString([Values(" ", "\"", "t")] string s)
+        {
+            int result = Str.UniqueChar(s);
+            Assert.AreEqual(result, 0);
+        }
+
+        [Test]
+        public void MiddleUniqueChar([Values("aabbccdffeegg")] string s)
+        {
+            int result = Str.UniqueChar(s);
+            Assert.AreEqual(result, 6);
+        }
     }
 }

@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 
-///<summary>Represents a shape.</summary>
+///<summary>Defines a Shape.</summary>
 class Shape
 {
-    ///<summary>Provides calculated area of a shape: Not Implemented.</summary>
-    public virtual int Area()
-    {
-        throw new System.NotImplementedException("Area() is not implemented");
-    }
+	public virtual int Area()
+	{
+		throw new NotImplementedException("Area() is not implemented");
+	}
 }

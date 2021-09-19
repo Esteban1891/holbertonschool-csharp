@@ -1,3 +1,6 @@
-﻿using System;
-
-enum Rating { Good, Great, Excellent };
+﻿enum Rating
+{
+    Good,
+    Great,
+    Excellent
+}

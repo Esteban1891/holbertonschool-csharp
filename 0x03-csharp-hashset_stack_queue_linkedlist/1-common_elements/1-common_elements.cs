@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class List
@@ -6,12 +6,15 @@ class List
     public static List<int> CommonElements(List<int> list1, List<int> list2)
     {
         List<int> newList = new List<int>();
-        foreach (int num in list1)
+
+        foreach (var i in list1)
         {
-            if (list2.Contains(num))
-                newList.Add(num);
+            foreach (var j in list2)
+            {
+                if (i == j)
+                    newList.Add(i);
+            }
         }
-        newList.Sort();
-        return (newList);
+        return newList;
     }
 }

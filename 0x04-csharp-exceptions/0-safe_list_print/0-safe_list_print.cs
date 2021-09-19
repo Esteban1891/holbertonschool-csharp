@@ -1,19 +1,22 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+
 class List
 {
-    public static int SafePrint(List<int> myList, int n)
-    {
-        int i = 0;
-        try
-        {
-            for (; i < n; i++)
-                Console.WriteLine(myList[i]);
-        }
-        catch (Exception)
-        {
-            return (i);
-        }
-        return (i);        
-    }
+	public static int SafePrint(List<int> myList, int n)
+	{
+		int idx = 0; 
+		try
+		{
+			while (idx < n)
+			{
+				Console.WriteLine(myList[idx++]);
+			}
+			return idx;
+		}
+		catch (ArgumentOutOfRangeException)
+		{
+			return idx - 1;
+		}
+	}
 }

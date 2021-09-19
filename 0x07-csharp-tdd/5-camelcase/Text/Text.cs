@@ -2,21 +2,25 @@
 
 namespace Text
 {
-    ///<summary>Performs operations on text string inputs.</summary>
     public class Str
     {
-        ///<summary>Counts words in a camelCase string.</summary>
         public static int CamelCase(string s)
         {
-            int count = 1;
-            if (s == null || s.Length == 0)
-                return (0);
-            foreach (char daffy in s)
+            string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            int count = 0;
+
+            if (s.Length <= 0)
+                return count;
+
+            for (int i = 1; i < s.Length; i++)
             {
-                if (Char.IsUpper(daffy))
+                if (upper.IndexOf(s[i]) != -1)
                     count++;
             }
-            return (count);
+
+            if (s.Length == 1 && "abcdefghijklmnopqrstuvwxyz".IndexOf(s[0]) == -1)
+                return 0;
+            return count + 1;
         }
     }
 }

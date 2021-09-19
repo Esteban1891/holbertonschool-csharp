@@ -1,15 +1,18 @@
-﻿using System;
+using System;
 
 class Line
 {
     public static void PrintDiagonal(int length)
     {
-        for (int i = 0; i < length; i++)
+        if (length < 1)
+            Console.WriteLine();
+        else
         {
-            for (int j = 0; j < i; j++)
-                Console.Write(" ");
-            Console.WriteLine("\\");
+            for (int i = length; i > 0; i--)
+            {
+                Console.WriteLine(new String(' ', length - i) + "\\");
+            }
+            Console.WriteLine();
         }
-        Console.WriteLine("");
     }
 }

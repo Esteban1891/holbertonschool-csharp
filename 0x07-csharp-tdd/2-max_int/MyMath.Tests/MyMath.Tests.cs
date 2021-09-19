@@ -1,28 +1,57 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Tests
+namespace MyMath.Tests
 {
+    [TestFixture]
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void SortedList()
         {
+            List<int> nums = new List<int>{ 1, 2, 3, 4, 5, 6 };
+            int result = Operations.Max(nums);
+            Assert.AreEqual(result, 6);
         }
 
         [Test]
-        public void Max_Empty()
+        public void UnsortedList()
+        {
+            List<int> nums = new List<int>{ 2, 1, 6, 4, 7, 1, 98, 23, 93 };
+            int result = Operations.Max(nums);
+            Assert.AreEqual(result, 98);
+        }
+
+        [Test]
+        public void EmptyList()
         {
             List<int> nums = new List<int>();
-            int output = MyMath.Operations.Max(nums);
-            Assert.That(output, Is.EqualTo(0));
+            int result = Operations.Max(nums);
+            Assert.AreEqual(result, 0);
         }
+
         [Test]
-        public void Max_List()
+        public void LengthOneList()
         {
-            List<int> nums = new List<int>() {98, -10, 0, 32, 972, 12, 1024, -727, -98, 50, 8};
-            int output = MyMath.Operations.Max(nums);
-            Assert.That(output, Is.EqualTo(1024));
+            List<int> nums = new List<int>{ 90 };
+            int result = Operations.Max(nums);
+            Assert.AreEqual(result, 90);
+        }
+
+        [Test]
+        public void MultpleMaximuns()
+        {
+            List<int> nums = new List<int>{ 23, 23, 23, 2, 22, 10 };
+            int result = Operations.Max(nums);
+            Assert.AreEqual(result, 23);
+        }
+
+        [Test]
+        public void NegativeIntegers()
+        {
+            List<int> nums = new List<int>{ -50, -48, -100, -999, -5};
+            int result = Operations.Max(nums);
+            Assert.AreEqual(result, -5);
         }
     }
 }

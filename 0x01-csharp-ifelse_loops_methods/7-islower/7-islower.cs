@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Character
 {
@@ -6,7 +6,6 @@ class Character
     {
         if (c >= 'a' && c <= 'z')
             return true;
-        else
-            return false;
+        return false;
     }
 }

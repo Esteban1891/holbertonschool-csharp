@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class Dictionary
@@ -6,9 +6,9 @@ class Dictionary
     public static int NumberOfKeys(Dictionary<string, string> myDict)
     {
         int count = 0;
-        foreach (string key in myDict.Keys)
+        foreach (var key in myDict)
         {
-            count = count + 1;
+            count++;
         }
         return count;
     }

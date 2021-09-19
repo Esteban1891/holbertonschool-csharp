@@ -1,13 +1,7 @@
-﻿using System;
-
-///<summary>Dog Class</summary>
-class Dog:Animal
-{
-
-}
-
-///<summary>Animal Class</summary>
+///<summary>Defines an Animal.</summary>
 class Animal
-{
+{}
 
-}
+///<summary>Defines a Dog.</summary>
+class Dog : Animal
+{}
