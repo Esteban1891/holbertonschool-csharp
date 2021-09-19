@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 class LList
 {
-	public static int Pop(LinkedList<int> myLList)
-	{
-		if (myLList.Count == 0)
-			return 0;
-		int tmp = myLList.First.Value;
-		myLList.RemoveFirst();
-		return tmp;
-	}
+    public static int Pop(LinkedList<int> myLList)
+    {
+        if (myLList.First == null)
+            return (0);
+        int num = myLList.First.Value;
+        myLList.RemoveFirst();
+        return (num);
+    }
 }

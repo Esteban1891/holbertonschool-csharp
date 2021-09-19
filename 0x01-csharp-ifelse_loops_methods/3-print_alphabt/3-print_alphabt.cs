@@ -2,17 +2,15 @@
 
 namespace _3_print_alphabt
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			for (char x = 'a'; x <= 'z'; x++)
-			{
-				if (x != 'e' && x != 'q')
-				{
-					Console.Write(x);
-				}
-			}
-		}
-	}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (char letter = 'a'; letter <='z'; letter++)
+            {
+                if (letter != 'e' && letter != 'q')
+                    Console.Write("{0}", letter);
+            }
+        }
+    }
 }

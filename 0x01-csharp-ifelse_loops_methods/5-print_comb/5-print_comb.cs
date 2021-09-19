@@ -2,21 +2,17 @@
 
 namespace _5_print_comb
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			for (int x = 0; x < 100; x++)
-			{
-				if (x != 99)
-				{
-					Console.Write($"{x.ToString("00")}, ");
-				}
-				else
-				{
-					Console.Write($"{x}\n");
-				}
-			}
-		}
-	}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (i != 99)
+                    Console.Write("{0:D2}, ", i);
+                else
+                    Console.Write("{0:D2}\n", i);
+            }
+        }
+    }
 }

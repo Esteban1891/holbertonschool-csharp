@@ -3,14 +3,16 @@ using System.Collections.Generic;
 
 class List
 {
-	public static int Sum(List<int> myList)
-	{
-		HashSet<int> setList = new HashSet<int>(myList);
-		int total = 0;
-
-		foreach (int j in setList)
-			total += j;
-
-		return total;
-	}
+    public static int Sum(List<int> myList)
+    {
+        int sum = 0;
+        List<int> newList = myList;
+        newList.Sort();
+        for (int i = 0; i < newList.Count; i++)
+        {
+            if (i == 0 || newList[i] != newList[i - 1])
+                sum += newList[i];
+        }
+        return (sum);
+    }
 }

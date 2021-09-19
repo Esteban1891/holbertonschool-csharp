@@ -2,14 +2,12 @@
 
 namespace _2_print_alphabet
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			for (char x = 'a'; x <= 'z'; x++)
-			{
-				Console.Write(x);
-			}
-		}
-	}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (char letter = 'a'; letter <='z'; letter++)
+                Console.Write("{0}", letter);
+        }
+    }
 }

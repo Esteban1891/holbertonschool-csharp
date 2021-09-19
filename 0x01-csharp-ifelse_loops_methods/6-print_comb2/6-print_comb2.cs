@@ -2,20 +2,20 @@
 
 namespace _6_print_comb2
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			for (int x = 1; x < 90; x++)
-			{
-				if (x / 10 < x % 10)
-				{
-					if (x != 89)
-						Console.Write($"{x.ToString("00")}, ");
-					else
-						Console.Write($"{x.ToString("00")}\n");
-				}
-			}
-		}
-	}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = i + 1; j < 10; j++)
+                {
+                    if (i == 8 && j == 9)
+                        Console.WriteLine("{0}{1}", i, j);
+                    else
+                        Console.Write("{0}{1}, ", i, j);
+                }
+            }
+        }
+    }
 }

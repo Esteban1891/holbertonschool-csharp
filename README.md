@@ -6,8 +6,10 @@ Repository root for C# projects.
 
 |   ***File/Folder***    |  **Description**                       |
 |---------------|---------------------------------------|
-| `0x00-csharp-hello_world` | Introduction to C#|
 | `README.md` |  Read me file. |
 
 ### Authors
-*Esteban De La Hoz* - [LinkedIn](https://www.linkedin.com/in/estebandelahoz/) || [Twitter](https://twitter.com/Esteban18911)
+*Cameron Eng* - [Github](https://github.com/c_eng/) || [Twitter](https://twitter.com/c33Eng)
+
+
+

@@ -1,24 +1,20 @@
 ﻿using System;
 
-namespace _14_rectangular_array
+class Program
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			int[,] matrix = new int[5, 5];
-			matrix[2, 2] = 1;
-			for (int x = 0; x < 5; x++)
-			{
-				for (int y = 0; y < 5; y++)
-				{
-					if (y != 4)
-						Console.Write($"{matrix[x, y]} ");
-					else
-						Console.Write($"{matrix[x, y]}");
-				}
-				Console.WriteLine();
-			}
-		}
-	}
+    static void Main(string[] args)
+    {
+        int[,] grid = new int[5,5];
+        grid [2,2] = 1;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (j != 0)
+                    Console.Write(" ");
+                Console.Write(grid[i,j]);
+            }
+            Console.WriteLine("");
+        }
+    }
 }
