@@ -9,7 +9,7 @@ Repository root for C# projects.
 | `README.md` |  Read me file. |
 
 ### Authors
-*Cameron Eng* - [Github](https://github.com/c_eng/) || [Twitter](https://twitter.com/c33Eng)
+*esteban* - [Github](https://github.com/Esteban1891/) || [Twitter](https://twitter.com/Esteban18911)
 
 
 
